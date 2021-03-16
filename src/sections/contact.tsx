@@ -1,23 +1,16 @@
-import React from 'react';
-import styled from 'styled-components';
-
-const Section = styled.section`
-    height: 100vh;
-    position: relative;
-`;
+import React from "react";
+import styled from "styled-components";
+import Section from "../components/section";
 
 const Text = styled.p`
-    position: absolute;
-    top: 30%;
-    left: 40%;
 `;
 
 const Contact: React.FC = () => {
     return (
-        <Section id='contact'>
+        <Section id="contact">
             <Text>Hello, I'm Mike. Welcome to my portfolio website.</Text>
         </Section>
     );
-}
+};
 
 export default Contact;

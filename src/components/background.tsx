@@ -1,17 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 // @ts-ignore
-import AboutLeftBlob from '../assets/About_top_left.svg';
+import AboutLeftBlob from "../assets/About_top_left.svg";
 // @ts-ignore
-import AboutRightBlob from '../assets/About_Projects_bottom_top_right.svg';
+import AboutRightBlob from "../assets/About_Projects_bottom_top_right.svg";
 // @ts-ignore
-import ProjectsLeftBlob from '../assets/Projects_left.svg';
+import ProjectsLeftBlob from "../assets/Projects_left.svg";
 // @ts-ignore
-import SkillsRightBlob from '../assets/Skills_Projects_top_right.svg';
+import SkillsRightBlob from "../assets/Skills_Projects_top_right.svg";
 // @ts-ignore
-import SkillsLeftBlob from '../assets/Skills_Contact_bottom_left.svg';
+import SkillsLeftBlob from "../assets/Skills_Contact_bottom_left.svg";
 // @ts-ignore
-import ProfilesRightBlob from '../assets/Profiles_bottom_right.svg';
+import ProfilesRightBlob from "../assets/Profiles_bottom_right.svg";
 
 const AboutLeftBlobStyled = styled(AboutLeftBlob)`
     position: absolute;
@@ -64,17 +64,25 @@ const ProfilesRightBlobStyled = styled(ProfilesRightBlob)`
     height: auto;
 `;
 
+const Wrapper = styled.div`
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 400vh;
+`;
+
 const Background: React.FC = () => {
     return (
-        <>
-        <AboutLeftBlobStyled/>
-        <AboutRightBlobStyled/>
-        <ProjectsLeftBlobStyled/>
-        <SkillsRightBlobStyled/>
-        <SkillsLeftBlobStyled/>
-        <ProfilesRightBlobStyled/>
-        </>
+        <Wrapper>
+            <AboutLeftBlobStyled />
+            <AboutRightBlobStyled />
+            <ProjectsLeftBlobStyled />
+            <SkillsRightBlobStyled />
+            <SkillsLeftBlobStyled />
+            <ProfilesRightBlobStyled />
+        </Wrapper>
     );
-}
+};
 
 export default Background;
