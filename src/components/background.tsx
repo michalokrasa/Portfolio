@@ -18,7 +18,12 @@ const AboutLeftBlobStyled = styled(AboutLeftBlob)`
     top: 0px;
     left: 0px;
     width: auto;
-    height: 50vw;
+    height: 50vh;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        width: auto;
+        height: 50vw;
+    }
 `;
 
 const AboutRightBlobStyled = styled(AboutRightBlob)`
@@ -26,7 +31,7 @@ const AboutRightBlobStyled = styled(AboutRightBlob)`
     right: 0px;
     top: 100vh;
     transform: translateY(-50%);
-    width: 30vw;
+    width: 50vw;
     height: auto;
 `;
 
