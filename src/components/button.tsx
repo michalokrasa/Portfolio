@@ -1,20 +1,22 @@
 import styled from "styled-components";
 
 const Button = styled.button`
-    font-size: 1.2rem;
     font-family: "Montserrat";
-    background-color: ${(props) => props.theme.palette.primary};
-    color: ${(props) => props.theme.palette.fontSecondary};
+    /* color: ${({ theme }) => theme.palette.fontSecondary}; */
+    color: #fff;
+    background-color: ${({ theme }) => theme.palette.primary};
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: ${(props) => props.theme.borderRadius};
+    padding: 0.5em 1em;
+    border-radius: ${({ theme }) => theme.borderRadius};
     transition: background-color 0.5s;
     cursor: pointer;
-    font-weight: bold;
-    box-shadow: ${(props) => props.theme.shadow};
+    box-shadow: ${({ theme }) => theme.shadow};
+
+    font-size: 1.063rem;
+    font-weight: ${({ theme }) => theme.weights.semiBold};
 
     &:hover {
-        background-color: ${(props) => props.theme.palette.secondary};
+        background-color: ${({ theme }) => theme.palette.secondary};
         transform: scale(1.1);
         transition: background-color 0.5s;
         transition: transform 0.5s;
@@ -27,6 +29,11 @@ const Button = styled.button`
     &:active {
         transform: scale(1);
         transition: transform 0.1s;
+    }
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        font-size: 1.75rem;
+        font-weight: ${({ theme }) => theme.weights.extraBold};
     }
 `;
 

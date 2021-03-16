@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 const MainContainer = styled.main`
     margin: 0 1rem;
-    background-color: ${(props) => props.theme.palette.background};
     display: flex;
     flex-direction: column;
+    z-index: 10;
 
 
     @media (min-width: ${(props) => props.theme.breakpoints.sm}) {

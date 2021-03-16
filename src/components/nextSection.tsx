@@ -19,15 +19,17 @@ const Wrapper = styled.div`
     flex-direction: column;
     width: 160px;
     align-items: center;
+
+    font-size: 0.6875rem;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        font-size: 1.5rem;
+    }
 `;
 
 const StyledArrow = styled(Arrow)`
-    height: 32px;
-    margin: 1rem;
-`;
-
-const Description = styled.p`
-    font-size: 1.25rem;
+    height: 1.5em;
+    margin: 1em;
 `;
 
 const NextSection: React.FC<Props> = ({ link, text }) => {

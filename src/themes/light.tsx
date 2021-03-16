@@ -14,8 +14,16 @@ const lightTheme: Theme = {
         md: "768px",
         lg: "1024px",
     },
-    borderRadius: "24px",
+    borderRadius: "0.8em",
     shadow: "0 4px 12px 0 rgba(0, 0, 0, 0.2)",
+    weights: {
+        light: 300,
+        regular: 400,
+        medium: 500,
+        semiBold: 600,
+        bold: 700,
+        extraBold: 800,
+    },
 };
 
 export default lightTheme;

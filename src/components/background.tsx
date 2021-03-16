@@ -17,8 +17,8 @@ const AboutLeftBlobStyled = styled(AboutLeftBlob)`
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 30vw;
-    height: auto;
+    width: auto;
+    height: 50vw;
 `;
 
 const AboutRightBlobStyled = styled(AboutRightBlob)`
@@ -70,6 +70,7 @@ const Wrapper = styled.div`
     left: 0px;
     width: 100%;
     height: 400vh;
+    z-index: -1;
 `;
 
 const Background: React.FC = () => {
