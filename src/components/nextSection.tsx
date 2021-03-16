@@ -17,7 +17,7 @@ const Wrapper = styled.div`
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
-    width: 160px;
+    width: fit-content;
     align-items: center;
 
     font-size: 0.6875rem;

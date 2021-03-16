@@ -6,6 +6,7 @@ const NavBar = styled.header`
     display: flex;
     padding: 3rem 2rem;
     z-index: 20;
+    position: absolute;
 `;
 
 const Title = styled.p`
