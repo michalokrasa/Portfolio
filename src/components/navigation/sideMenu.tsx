@@ -43,7 +43,7 @@ export const StyledMenu = styled(motion.nav).attrs((props) => ({
     }
 `;
 
-const MenuVariants: Variants = {
+const SideMenuVariants: Variants = {
     hidden: {
         x: "100%",
     },
@@ -61,16 +61,16 @@ const MenuVariants: Variants = {
     },
 };
 
-interface MenuProps extends HTMLMotionProps<"nav"> {
+interface SideMenuProps extends HTMLMotionProps<"nav"> {
     items: MenuItem[];
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Menu: React.FC<MenuProps> = ({ id, items, setOpen }) => {
+const SideMenu: React.FC<SideMenuProps> = ({ id, items, setOpen }) => {
     return (
         <StyledMenu
             id={id}
-            variants={MenuVariants}
+            variants={SideMenuVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
@@ -87,4 +87,4 @@ const Menu: React.FC<MenuProps> = ({ id, items, setOpen }) => {
         </StyledMenu>
     );
 };
-export default Menu;
+export default SideMenu;

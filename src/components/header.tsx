@@ -46,12 +46,12 @@ const Header: React.FC = () => {
     return (
         <NavBar>
             <Title>Hello, I'm Mike</Title>
-            <Nav>
+            {/* <Nav>
                 <Link href="#introduction">About me</Link>
                 <Link href="#projects">Projects</Link>
                 <Link href="#skills">Skills</Link>
                 <Link href="#contact">Contact</Link>
-            </Nav>
+            </Nav> */}
         </NavBar>
     );
 };

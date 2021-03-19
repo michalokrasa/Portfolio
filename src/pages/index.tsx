@@ -26,6 +26,8 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
+//TODO: Scrolling triggers url changes based on displayed section
+
 const IndexPage: React.FC = () => {
     return (
         <ThemeProvider theme={theme}>

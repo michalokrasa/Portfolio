@@ -33,6 +33,11 @@ const AboutRightBlobStyled = styled(AboutRightBlob)`
     transform: translateY(-50%);
     width: 50vw;
     height: auto;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        width: 30vw;
+        height: auto;
+    }
 `;
 
 const ProjectsLeftBlobStyled = styled(ProjectsLeftBlob)`
@@ -76,6 +81,7 @@ const Wrapper = styled.div`
     width: 100%;
     height: 400vh;
     z-index: -1;
+    overflow: hidden;
 `;
 
 const Background: React.FC = () => {
