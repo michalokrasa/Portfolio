@@ -13,27 +13,13 @@ import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import { useMediaQueryEffect } from "../../hooks";
 import { ThemeContext } from "styled-components";
 
-const MenuItems: MenuItem[] = [
-    {
-        name: "About me",
-        href: "#introduction",
-    },
-    {
-        name: "Projects",
-        href: "#projects",
-    },
-    {
-        name: "Skills",
-        href: "#skills",
-    },
-    {
-        name: "Contact",
-        href: "#contact",
-    },
-];
 const menuId = "burger-nav";
 
-const BurgerableNavBar: React.FC = () => {
+interface BurgerableNavProps {
+    menuItems: MenuItem[];
+}
+
+const BurgerableNav: React.FC<BurgerableNavProps> = ({ menuItems }) => {
     const [open, setOpen] = useState(false);
     const [isScrolled, setScrolled] = useState(false);
     const theme = useContext(ThemeContext);
@@ -68,12 +54,11 @@ const BurgerableNavBar: React.FC = () => {
             <FocusLock disabled={!open}>
                 <AnimateSharedLayout>
                     <NavBar layout>
-                        {isLargeScreen && (
-                            <HeaderMenu
-                                items={MenuItems}
-                                isScrolled={isScrolled}
-                            />
-                        )}
+                        <AnimatePresence>
+                            {isLargeScreen && !isScrolled && (
+                                <HeaderMenu items={menuItems} />
+                            )}
+                        </AnimatePresence>
                         <AnimatePresence>
                             {(isScrolled || !isLargeScreen) && (
                                 <BurgerButton
@@ -90,7 +75,7 @@ const BurgerableNavBar: React.FC = () => {
                         <SideMenuWrapper setOpen={setOpen}>
                             <SideMenu
                                 id={menuId}
-                                items={MenuItems}
+                                items={menuItems}
                                 setOpen={setOpen}
                             />
                         </SideMenuWrapper>
@@ -101,4 +86,4 @@ const BurgerableNavBar: React.FC = () => {
     );
 };
 
-export default BurgerableNavBar;
+export default BurgerableNav;

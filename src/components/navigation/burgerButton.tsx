@@ -1,5 +1,5 @@
 import { motion, Variants } from "framer-motion";
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 const StyledBurger = styled(motion.button).attrs((props) => ({
@@ -44,7 +44,7 @@ const SpanVariants: Variants = {
         rotate: 45,
         translateY: "0.666rem",
     },
-    openInsideSpan: {
+    openMiddleSpan: {
         translateX: 20,
         opacity: 0,
     },
@@ -73,6 +73,12 @@ const StyledBurgerVariants: Variants = {
 };
 
 const BurgerButton: React.FC<BurgerProps> = ({ open, setOpen }) => {
+    useEffect(() => {
+        return () => {
+            setOpen(false);
+        };
+    }, []);
+
     return (
         <StyledBurger
             layout
@@ -93,7 +99,7 @@ const BurgerButton: React.FC<BurgerProps> = ({ open, setOpen }) => {
             <motion.span
                 variants={SpanVariants}
                 initial={"closed"}
-                animate={open ? "openInsideSpan" : "closed"}
+                animate={open ? "openMiddleSpan" : "closed"}
             />
             <motion.span
                 variants={SpanVariants}

@@ -1,11 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {
-    AnimatePresence,
-    HTMLMotionProps,
-    motion,
-    Variants,
-} from "framer-motion";
+import { HTMLMotionProps, motion, Variants } from "framer-motion";
 import { MenuItem } from ".";
 
 const LinkList = styled(motion.ul).attrs((props) => ({
@@ -34,14 +29,14 @@ const LinkListVariants: Variants = {
     visible: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.3,
+            staggerChildren: 0.2,
             when: "beforeChildren",
         },
     },
     exit: {
         opacity: 0,
         transition: {
-            staggerChildren: 0.3,
+            staggerChildren: 0.1,
             staggerDirection: -1,
             when: "afterChildren",
         },
@@ -68,10 +63,9 @@ const ItemVariants: Variants = {
 
 interface HeaderMenuProps extends HTMLMotionProps<"nav"> {
     items: MenuItem[];
-    isScrolled: boolean;
 }
 
-const HeaderMenu: React.FC<HeaderMenuProps> = ({ items, isScrolled }) => {
+const HeaderMenu: React.FC<HeaderMenuProps> = ({ items }) => {
     return (
         <LinkList
             layout
@@ -80,18 +74,11 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ items, isScrolled }) => {
             animate="visible"
             exit="exit"
         >
-            <AnimatePresence>
-                {!isScrolled &&
-                    items.map((item) => (
-                        <motion.li
-                            layout
-                            key={item.name}
-                            variants={ItemVariants}
-                        >
-                            <a href={item.href}>{item.name}</a>
-                        </motion.li>
-                    ))}
-            </AnimatePresence>
+            {items.map((item) => (
+                <motion.li layout key={item.name} variants={ItemVariants}>
+                    <a href={item.href}>{item.name}</a>
+                </motion.li>
+            ))}
         </LinkList>
     );
 };
