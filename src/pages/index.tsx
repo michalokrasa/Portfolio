@@ -1,15 +1,10 @@
 import * as React from "react";
-import Header from "../components/header";
 import { ThemeProvider } from "styled-components";
 import theme from "../themes/light";
-import Introduction from "../sections/introduction";
-import Projects from "../sections/projects";
-import Background from "../components/background";
-import Skills from "../sections/skills";
-import Contact from "../sections/contact";
-import MainContainer from "../components/mainContainer";
-import BurgerableNav, { MenuItem } from "../components/navigation";
 import GlobalStyle from "../themes/globalStyle";
+import { Contact, Skills, Projects, Introduction } from "../sections";
+import { MainContainer, Background, Header } from "../components/layout";
+import BurgerableNav, { MenuItem } from "../components/navigation";
 
 //TODO: Scrolling triggers url changes based on displayed section
 

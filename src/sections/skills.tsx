@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Section from "../components/section";
+import { Section } from "../components/layout";
 
-const Text = styled.p`
-`;
+const Text = styled.p``;
 
 const Skills: React.FC = () => {
     return (

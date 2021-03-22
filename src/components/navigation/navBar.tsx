@@ -10,11 +10,15 @@ const BurgerWrapper = styled(motion.div).attrs((props) => ({
     border-radius: 2rem;
     position: fixed;
     z-index: 1002;
-    top: 3rem;
+    top: 2rem;
     right: 2rem;
     padding: 0.7rem;
     display: flex;
     align-items: center;
+
+    @media (min-width: ${({theme}) => theme.breakpoints.lg}) {
+        top: 3rem;
+    }
 `;
 
 

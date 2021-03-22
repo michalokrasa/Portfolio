@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import Text from "../components/text";
-import Header from "../components/textHeader";
+import Text from "../components/typography/text";
+import { HeaderText } from "../components/typography";
 import Button from "../components/button";
 import NextSection from "../components/nextSection";
-import Section from "../components/section";
+import { Section } from "../components/layout";
 
 const TextContainer = styled.div`
     width: 90%;
@@ -15,6 +15,10 @@ const TextContainer = styled.div`
     position: relative;
 
     transform: translate(0, -10%);
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        width: 70%;
+    }
 `;
 
 const ButtonWrapper = styled.div`
@@ -27,7 +31,9 @@ const Introduction = () => {
     return (
         <Section id="introduction">
             <TextContainer>
-                <Header>Welcome to my portfolio website &#128075;</Header>
+                <HeaderText>
+                    Welcome to my portfolio website &#128075;
+                </HeaderText>
                 <Text>
                     As an entry level full stack web developer and soon to be
                     BSc in Computer Science, I am ready to take my first steps
