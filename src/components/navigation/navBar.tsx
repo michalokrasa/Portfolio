@@ -6,18 +6,18 @@ const BurgerWrapper = styled(motion.div).attrs((props) => ({
     ...props,
 }))`
     box-shadow: none;
-    background-color: none;
     border-radius: 2rem;
     position: fixed;
     z-index: 1002;
-    top: 2rem;
-    right: 2rem;
+    top: 0.5rem;
+    right: 0.5rem;
     padding: 0.7rem;
     display: flex;
     align-items: center;
 
     @media (min-width: ${({theme}) => theme.breakpoints.lg}) {
         top: 3rem;
+        right: 3rem;
     }
 `;
 

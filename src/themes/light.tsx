@@ -8,6 +8,7 @@ const lightTheme: Theme = {
         fontRegular: "#333",
         fontSecondary: "#555",
         background: "#FDFDFD",
+        white: "#FFF",
     },
     breakpoints: {
         sm: "320px",

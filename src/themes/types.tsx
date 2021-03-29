@@ -5,6 +5,7 @@ interface Palette {
     fontRegular: string;
     fontSecondary: string;
     background: string;
+    white: string;
 }
 
 interface Breakpoints {
@@ -14,12 +15,12 @@ interface Breakpoints {
 }
 
 interface Weights {
-    light: 300;
-    regular: 400;
-    medium: 500;
-    semiBold: 600;
-    bold: 700;
-    extraBold: 800;
+    light: number;
+    regular: number;
+    medium: number;
+    semiBold: number;
+    bold: number;
+    extraBold: number;
 }
 
 interface Theme {

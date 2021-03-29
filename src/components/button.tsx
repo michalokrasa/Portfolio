@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const Button = styled.button`
     font-family: "Montserrat";
+    width: fit-content;
     /* color: ${({ theme }) => theme.palette.fontSecondary}; */
     color: #fff;
     background-color: ${({ theme }) => theme.palette.primary};

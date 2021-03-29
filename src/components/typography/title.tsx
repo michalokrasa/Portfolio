@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Title = styled.h1`
     color: ${({theme}) => theme.palette.fontRegular};
-    text-align: justify;
+    text-align: center;
     font-size: 1.375rem;
     font-weight: ${({theme}) => theme.weights.bold};
 

@@ -4,9 +4,13 @@ import styled from "styled-components";
 const StyledHeader = styled.header`
     width: 100%;
     display: flex;
-    padding: 3rem 2rem;
+    padding: 1.6rem 1.6rem;
     z-index: 20;
     position: absolute;
+
+    @media (min-width: ${({theme}) => theme.breakpoints.lg}) {
+        padding: 3rem 3rem;
+    }
 `;
 
 const Title = styled.p`

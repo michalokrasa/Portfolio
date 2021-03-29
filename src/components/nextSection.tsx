@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 //@ts-ignore
-import Arrow from "../assets/down-arrow.svg";
+import Arrow from "../assets/svg/down-arrow.svg";
 
 interface Props {
     /** link to the section this element refers */
@@ -11,10 +11,6 @@ interface Props {
 }
 
 const Wrapper = styled.div`
-    position: absolute;
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     width: fit-content;
