@@ -30,6 +30,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-focus-lock": "^2.5.0",
+    "react-spinners-kit": "^1.9.1",
+    "react-toast-notifications": "^2.4.3",
     "styled-components": "^5.2.1",
     "uuid": "^3.4.0"
   }

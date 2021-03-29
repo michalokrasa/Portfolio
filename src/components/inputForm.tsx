@@ -1,14 +1,9 @@
 import { Field, Form, Formik } from "formik";
-import { navigate } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import Button from "./button";
-
-// interface Values {
-//     firstName: string;
-//     lastName: string;
-//     email: string;
-// }
+import SuspenseOverlay from "./suspenseOverlay";
+import { useToasts, Options } from "react-toast-notifications";
 
 const StyledForm = styled(Form)`
     position: relative;
@@ -60,7 +55,7 @@ const StyledForm = styled(Form)`
     }
 `;
 
-const StyledButton = styled(Button)`
+const StyledSuspenseOverlay = styled(SuspenseOverlay)`
     align-self: flex-end;
 `;
 
@@ -73,30 +68,47 @@ const encode = (data) => {
         .join("&");
 };
 
-const handleSubmit = (event) => {
-    fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-            "form-name": event.target.getAttribute("name"),
-            ...event.target.data,
-        }),
-    })
-        .then(() => navigate("/#contact"))
-        .catch((error) => alert(error));
+const ErrorToast: { children: JSX.Element; options: Options } = {
+    children: (
+        <p>
+            Something went wrong. Please use your email client to contact me at{" "}
+            <a href="mailto:michal.okrasa98@gmail.com">
+                {" "}
+                michal.okrasa98@gmail.com{" "}
+            </a>
+            . 😧😬
+        </p>
+    ),
+    options: {
+        appearance: "error",
+        autoDismiss: false,
+    },
+};
+
+const SuccesToast: { children: JSX.Element; options: Options } = {
+    children: (
+        <p>
+            Thank you, your message was successfully submitted! I will reach out
+            to you ASAP. 📫&#128232;
+        </p>
+    ),
+    options: {
+        appearance: "success",
+    },
 };
 
 const InputForm = ({ initialValues }) => {
+    const { addToast } = useToasts();
+
     return (
         <Formik
             initialValues={initialValues}
-            onSubmit={async (
-                values
-                // values: Values,
-                // { setSubmitting }: FormikHelpers<Values>
-            ) => {
+            onSubmit={async (values) => {
                 try {
-                    await fetch("/", {
+                    const sendingThrottle = new Promise((r) =>
+                        setTimeout(r, 500)
+                    );
+                    const response = fetch("/", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/x-www-form-urlencoded",
@@ -106,36 +118,58 @@ const InputForm = ({ initialValues }) => {
                             ...values,
                         }),
                     });
+
+                    const [result] = await Promise.all([
+                        response,
+                        sendingThrottle,
+                    ]);
+                    console.log("Submit respose message:");
+                    console.log(result);
+                    if (result.ok) {
+                        addToast(SuccesToast.children, {
+                            ...SuccesToast.options,
+                        });
+                    } else {
+                        addToast(ErrorToast.children, {
+                            ...ErrorToast.options,
+                        });
+                    }
                 } catch (error) {
-                    console.log("error message");
-                    console.log(error);
+                    console.log("Submit error message:");
+                    console.log(error.message);
+                    addToast(ErrorToast.children, { ...ErrorToast.options });
                 }
-                navigate("/#contact");
             }}
         >
-            <StyledForm
-                name="contact"
-                method="POST"
-                data-netlify="true"
-                netlify-honeypot="bot-field"
-            >
-                <input type="hidden" name="bot-field" />
-                <label htmlFor="email">Your email</label>
-                <Field
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="Your email"
-                />
-                <label htmlFor="message">Message</label>
-                <Field
-                    id="message"
-                    name="message"
-                    component="textarea"
-                    placeholder="Message"
-                />
-                <StyledButton type="submit">Send</StyledButton>
-            </StyledForm>
+            {({ isSubmitting }) => (
+                <StyledForm
+                    name="contact"
+                    method="POST"
+                    data-netlify="true"
+                    netlify-honeypot="bot-field"
+                >
+                    <input type="hidden" name="bot-field" />
+                    <label htmlFor="email">Your email</label>
+                    <Field
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="Your email"
+                    />
+                    <label htmlFor="message">Message</label>
+                    <Field
+                        id="message"
+                        name="message"
+                        component="textarea"
+                        placeholder="Message"
+                    />
+                    <StyledSuspenseOverlay loading={isSubmitting}>
+                        <Button type="submit" disabled={isSubmitting}>
+                            Send
+                        </Button>
+                    </StyledSuspenseOverlay>
+                </StyledForm>
+            )}
         </Formik>
     );
 };

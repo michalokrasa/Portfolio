@@ -16,7 +16,7 @@ const Button = styled.button`
     font-size: 1.063rem;
     font-weight: ${({ theme }) => theme.weights.semiBold};
 
-    &:hover {
+    &:hover&:enabled {
         background-color: ${({ theme }) => theme.palette.secondary};
         transform: scale(1.1);
         transition: background-color 0.5s;

@@ -1,6 +1,6 @@
-import { Theme } from "./types";
+import { DefaultTheme } from "styled-components";
 
-const lightTheme: Theme = {
+const lightTheme: DefaultTheme = {
     palette: {
         primary: "#FFBE57",
         secondary: "#e0a84f",

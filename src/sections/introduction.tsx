@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Button from "../components/button";
 import NextSection from "../components/nextSection";
 import { Section } from "../components/layout";
+import { navigate } from "gatsby";
 
 const TextCard = styled.div`
     width: 90%;
@@ -65,7 +66,7 @@ const Introduction = () => {
                         which you can find below.
                     </p>
                     <ButtonWrapper>
-                        <Button>Hire me</Button>
+                        <Button onClick={() => navigate("/#contact")}>Hire me</Button>
                     </ButtonWrapper>
                 </TextCard>
             </Wrapper>

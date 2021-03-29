@@ -3,9 +3,15 @@ import { ThemeProvider } from "styled-components";
 import theme from "../themes/light";
 import GlobalStyle from "../themes/globalStyle";
 import { Contact, Skills, Projects, Introduction } from "../sections";
-import { MainContainer, Background, Header, Footer } from "../components/layout";
+import {
+    MainContainer,
+    Background,
+    Header,
+    Footer,
+} from "../components/layout";
 import BurgerableNav, { MenuItem } from "../components/navigation";
 import { useRealHight } from "../hooks";
+import { ToastProvider } from "react-toast-notifications";
 
 //TODO: Scrolling triggers url changes based on displayed section
 
@@ -33,17 +39,19 @@ const IndexPage: React.FC = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            <Background />
-            <BurgerableNav menuItems={menuItems} />
-            <Header />
-            <MainContainer>
-                <Introduction />
-                <Projects />
-                <Skills />
-                <Contact />
-            </MainContainer>
-            <Footer />
+            <ToastProvider autoDismiss placement="top-center">
+                <GlobalStyle />
+                <Background />
+                <BurgerableNav menuItems={menuItems} />
+                <Header />
+                <MainContainer>
+                    <Introduction />
+                    <Projects />
+                    <Skills />
+                    <Contact />
+                </MainContainer>
+                <Footer />
+            </ToastProvider>
         </ThemeProvider>
     );
 };

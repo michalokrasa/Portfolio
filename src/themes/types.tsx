@@ -23,12 +23,16 @@ interface Weights {
     extraBold: number;
 }
 
-interface Theme {
-    palette: Palette;
-    breakpoints: Breakpoints;
-    weights: Weights;
-    borderRadius: string;
-    shadow: string;
-}
+// import original module declarations
+import "styled-components";
 
-export { Theme };
+// and extend them!
+declare module "styled-components" {
+    export interface DefaultTheme {
+        palette: Palette;
+        breakpoints: Breakpoints;
+        weights: Weights;
+        borderRadius: string;
+        shadow: string;
+    }
+}
