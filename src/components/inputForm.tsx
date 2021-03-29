@@ -1,4 +1,5 @@
 import { Field, Form, Formik } from "formik";
+import { navigate } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import Button from "./button";
@@ -63,24 +64,62 @@ const StyledButton = styled(Button)`
     align-self: flex-end;
 `;
 
+const encode = (data) => {
+    return Object.keys(data)
+        .map(
+            (key) =>
+                encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+        )
+        .join("&");
+};
+
+const handleSubmit = (event) => {
+    fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+            "form-name": event.target.getAttribute("name"),
+            ...event.target.data,
+        }),
+    })
+        .then(() => navigate("/#contact"))
+        .catch((error) => alert(error));
+};
+
 const InputForm = ({ initialValues }) => {
     return (
         <Formik
             initialValues={initialValues}
-            onSubmit={(
+            onSubmit={async (
                 values
                 // values: Values,
                 // { setSubmitting }: FormikHelpers<Values>
             ) => {
-                setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    // setSubmitting(false);
-                }, 500);
+                try {
+                    await fetch("/", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded",
+                        },
+                        body: encode({
+                            "form-name": "contact",
+                            ...values,
+                        }),
+                    });
+                } catch (error) {
+                    console.log("error message");
+                    console.log(error);
+                }
+                navigate("/#contact");
             }}
         >
-            <StyledForm name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <StyledForm
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+            >
                 <input type="hidden" name="bot-field" />
-                <input type="hidden" name="form-name" value="contact" />
                 <label htmlFor="email">Your email</label>
                 <Field
                     id="email"
