@@ -29,11 +29,6 @@ const StyledBurger = styled(motion.button).attrs((props) => ({
     }
 `;
 
-interface BurgerProps {
-    open: boolean;
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 const SpanVariants: Variants = {
     closed: {
         translateX: 0,
@@ -71,6 +66,11 @@ const StyledBurgerVariants: Variants = {
         },
     },
 };
+
+interface BurgerProps {
+    open: boolean;
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 const BurgerButton: React.FC<BurgerProps> = ({ open, setOpen }) => {
     useEffect(() => {

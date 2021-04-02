@@ -3,7 +3,7 @@ import styled from "styled-components";
 //@ts-ignore
 import Arrow from "../assets/svg/down-arrow.svg";
 
-interface Props {
+interface NextSectionProps {
     /** link to the section this element refers */
     link: string;
     /** text to be displayed above the arrow */
@@ -28,7 +28,7 @@ const StyledArrow = styled(Arrow)`
     margin: 1em;
 `;
 
-const NextSection: React.FC<Props> = ({ link, text }) => {
+const NextSection: React.FC<NextSectionProps> = ({ link, text }) => {
     return (
         <Wrapper>
             <p>{text}</p>

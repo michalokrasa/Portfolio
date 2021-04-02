@@ -22,8 +22,6 @@ const Wrapper = styled.section`
 interface SectionProps {
     /** Section id, can be used to link to it. */
     id: string;
-    /** Components to be displayed inside the section. */
-    children: React.ReactNode;
 }
 
 const Section: React.FC<SectionProps> = ({ id, children }) => {

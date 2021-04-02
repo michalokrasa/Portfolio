@@ -4,40 +4,7 @@ import Button from "../components/button";
 import NextSection from "../components/nextSection";
 import { Section } from "../components/layout";
 import { navigate } from "gatsby";
-
-const TextCard = styled.div`
-    width: 90%;
-    height: fit-content;
-    border-radius: ${({ theme }) => theme.borderRadius};
-    box-shadow: ${({ theme }) => theme.shadow};
-    background-color: ${({ theme }) => theme.palette.background};
-    padding: 2rem;
-    position: relative;
-
-    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-        width: 70%;
-    }
-
-    h2 {
-        margin-bottom: 1em;
-        color: ${(props) => props.theme.palette.fontTitle};
-        font-size: 0.9375rem;
-
-        @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-            font-size: 1.8rem;
-        }
-    }
-
-    p {
-        color: ${({ theme }) => theme.palette.fontRegular};
-        text-align: justify;
-        font-size: 0.8125rem;
-
-        @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-            font-size: 1.625rem;
-        }
-    }
-`;
+import TextCard from "../components/textCard";
 
 const ButtonWrapper = styled.div`
     position: absolute;
@@ -52,21 +19,25 @@ const Wrapper = styled.div`
     justify-content: center;
 `;
 
+const Content = {
+    title: "Welcome to my portfolio website 👋",
+    text:
+        "As an entry level full stack web developer and soon to \
+    be BSc in Computer Science, I am ready to take my first \
+    steps in commercial projects. So far, I have obtained \
+    experience from plenty of personal and student projects, \
+    which you can find below.",
+};
+
 const Introduction = () => {
     return (
         <Section id="introduction">
             <Wrapper>
-                <TextCard>
-                    <h2>Welcome to my portfolio website &#128075;</h2>
-                    <p>
-                        As an entry level full stack web developer and soon to
-                        be BSc in Computer Science, I am ready to take my first
-                        steps in commercial projects. So far, I have obtained
-                        experience from plenty of personal and student projects,
-                        which you can find below.
-                    </p>
+                <TextCard title={Content.title} text={Content.text}>
                     <ButtonWrapper>
-                        <Button onClick={() => navigate("/#contact")}>Hire me</Button>
+                        <Button onClick={() => navigate("/#contact")}>
+                            Hire me
+                        </Button>
                     </ButtonWrapper>
                 </TextCard>
             </Wrapper>

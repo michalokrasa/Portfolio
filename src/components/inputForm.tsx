@@ -1,9 +1,14 @@
-import { Field, Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 import React from "react";
 import styled from "styled-components";
 import Button from "./button";
 import SuspenseOverlay from "./suspenseOverlay";
-import { useToasts, Options } from "react-toast-notifications";
+import { useToasts } from "react-toast-notifications";
+import { SubmissionError, SubmissionSuccess } from "./toasts";
+import StyledInput from "./input";
+import StyledTextarea from "./textarea";
+import InputErrorMessage from "./inputErrorMessage";
+import StyledLabel from "./inputLabel";
 
 const StyledForm = styled(Form)`
     position: relative;
@@ -13,42 +18,6 @@ const StyledForm = styled(Form)`
     display: flex;
     flex: 1;
     flex-direction: column;
-
-    label {
-        color: ${({ theme }) => theme.palette.fontRegular};
-        display: block;
-        font-size: 1em;
-        padding: 0 0.5em;
-        margin-top: 0.5em;
-    }
-
-    input {
-        font-size: 1em;
-        font-family: "Montserrat";
-        width: 50%;
-        margin: 1em 0;
-        height: 2em;
-        padding: 1em;
-        outline: none;
-        border: none;
-        background-color: ${({ theme }) => theme.palette.background};
-        border-radius: ${({ theme }) => theme.borderRadius};
-        box-shadow: ${({ theme }) => theme.shadow};
-    }
-
-    textarea {
-        font-size: 1em;
-        font-family: "Montserrat";
-        resize: none;
-        height: 10em;
-        margin: 1em 0;
-        padding: 1em;
-        outline: none;
-        border: none;
-        background-color: ${({ theme }) => theme.palette.background};
-        border-radius: ${({ theme }) => theme.borderRadius};
-        box-shadow: ${({ theme }) => theme.shadow};
-    }
 
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
         font-size: 1.5rem;
@@ -68,41 +37,52 @@ const encode = (data) => {
         .join("&");
 };
 
-const ErrorToast: { children: JSX.Element; options: Options } = {
-    children: (
-        <p>
-            Something went wrong. Please use your email client to contact me at{" "}
-            <a href="mailto:michal.okrasa98@gmail.com">
-                {" "}
-                michal.okrasa98@gmail.com{" "}
-            </a>
-            . 😧😬
-        </p>
-    ),
-    options: {
-        appearance: "error",
-        autoDismiss: false,
-    },
+const validateEmail = (value: string) => {
+    let error: string;
+    if (!value) {
+        error = "Required";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+        error = "Invalid email address";
+    }
+    return error;
 };
 
-const SuccesToast: { children: JSX.Element; options: Options } = {
-    children: (
-        <p>
-            Thank you, your message was successfully submitted! I will reach out
-            to you ASAP. 📫&#128232;
-        </p>
-    ),
-    options: {
-        appearance: "success",
-    },
+const validateMessage = (value: string) => {
+    let error: string;
+    if (!value) {
+        error = "Required";
+    }
+    return error;
 };
 
-const InputForm = ({ initialValues }) => {
+interface InputFormProps {
+    initialValues: {
+        email: string;
+        message: string;
+    };
+}
+
+const InputForm: React.FC<InputFormProps> = ({ initialValues }) => {
     const { addToast } = useToasts();
 
     return (
         <Formik
             initialValues={initialValues}
+            validate={(values) => {
+                let errors: { email?: string; message?: string } = {};
+
+                const emailValidation = validateEmail(values.email);
+                if (emailValidation) {
+                    errors.email = emailValidation;
+                }
+
+                const messageValidation = validateMessage(values.message);
+                if (messageValidation) {
+                    errors.message = messageValidation;
+                }
+
+                return errors;
+            }}
             onSubmit={async (values) => {
                 try {
                     const sendingThrottle = new Promise((r) =>
@@ -126,22 +106,24 @@ const InputForm = ({ initialValues }) => {
                     console.log("Submit respose message:");
                     console.log(result);
                     if (result.ok) {
-                        addToast(SuccesToast.children, {
-                            ...SuccesToast.options,
+                        addToast(SubmissionSuccess.children, {
+                            ...SubmissionSuccess.options,
                         });
                     } else {
-                        addToast(ErrorToast.children, {
-                            ...ErrorToast.options,
+                        addToast(SubmissionError.children, {
+                            ...SubmissionError.options,
                         });
                     }
                 } catch (error) {
                     console.log("Submit error message:");
                     console.log(error.message);
-                    addToast(ErrorToast.children, { ...ErrorToast.options });
+                    addToast(SubmissionError.children, {
+                        ...SubmissionError.options,
+                    });
                 }
             }}
         >
-            {({ isSubmitting }) => (
+            {({ errors, touched, isSubmitting, handleChange, handleBlur }) => (
                 <StyledForm
                     name="contact"
                     method="POST"
@@ -149,20 +131,33 @@ const InputForm = ({ initialValues }) => {
                     netlify-honeypot="bot-field"
                 >
                     <input type="hidden" name="bot-field" />
-                    <label htmlFor="email">Your email</label>
-                    <Field
+                    <StyledLabel htmlFor="email">Your email</StyledLabel>
+                    <StyledInput
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                         id="email"
                         name="email"
                         type="email"
-                        placeholder="Your email"
+                        placeholder="bestCompany@world.com"
+                        $error={!!(errors.email && touched.email)}
                     />
-                    <label htmlFor="message">Message</label>
-                    <Field
+                    <InputErrorMessage show={!!(errors.email && touched.email)}>
+                        {errors.email}
+                    </InputErrorMessage>
+                    <StyledLabel htmlFor="message">Message</StyledLabel>
+                    <StyledTextarea
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                         id="message"
                         name="message"
-                        component="textarea"
-                        placeholder="Message"
+                        placeholder="Let's get in touch!"
+                        $error={!!(errors.message && touched.message)}
                     />
+                    <InputErrorMessage
+                        show={!!(errors.message && touched.message)}
+                    >
+                        {errors.message}
+                    </InputErrorMessage>
                     <StyledSuspenseOverlay loading={isSubmitting}>
                         <Button type="submit" disabled={isSubmitting}>
                             Send

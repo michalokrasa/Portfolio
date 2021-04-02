@@ -7,6 +7,7 @@ import { Title } from "../components/typography";
 import GitHubIcon from "../assets/svg/github_icon.svg";
 // @ts-ignore
 import LinkedInIcon from "../assets/svg/linkedin_icon.svg";
+import ExternalLinks from "../components/externalLinks";
 
 const TitleWrapper = styled(Title)`
     display: flex;
@@ -26,51 +27,13 @@ const ContentWrapper = styled.div`
     }
 `;
 
-const ExternalLinksWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-self: flex-end;
-    align-items: center;
-    flex: 1;
+export interface ExternalSite {
+    href: string;
+    name: string;
+    icon: JSX.Element;
+}
 
-    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-        align-self: center;
-    }
-
-    h2 {
-        font-size: 0.8125rem;
-        font-weight: ${({ theme }) => theme.weights.semiBold};
-        margin: 0.5em 0;
-
-        @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-            font-size: 1.75rem;
-        }
-    }
-
-    li {
-        font-size: 0.6875rem;
-        margin: 0.5em 0;
-        display: flex;
-        align-items: center;
-
-        @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-            font-size: 1.5rem;
-            font-weight: ${({ theme }) => theme.weights.semiBold};
-        }
-    }
-
-    a {
-        text-decoration: none;
-        color: ${({ theme }) => theme.palette.fontRegular};
-    }
-
-    svg {
-        width: 1em;
-        margin-right: 0.5em;
-    }
-`;
-
-const ExternalSites = [
+const ExternalSites: ExternalSite[] = [
     {
         href: "https://github.com/BalboBigguns",
         name: "@BalboBigguns",
@@ -89,19 +52,10 @@ const Contact: React.FC = () => {
             <TitleWrapper>Contact</TitleWrapper>
             <ContentWrapper>
                 <InputForm initialValues={{ email: "", message: "" }} />
-                <ExternalLinksWrapper>
-                    <h2>Visit my profiles</h2>
-                    <ul>
-                        {ExternalSites.map((site) => (
-                            <li key={site.href}>
-                                {site.icon}
-                                <a href={site.href} target="_blank">
-                                    {site.name}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </ExternalLinksWrapper>
+                <ExternalLinks
+                    title="Visit my profiles"
+                    items={ExternalSites}
+                />
             </ContentWrapper>
         </Section>
     );

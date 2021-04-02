@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { HTMLMotionProps, motion, Variants } from "framer-motion";
-import { MenuItem } from ".";
 
 const LinkList = styled(motion.ul).attrs((props) => ({
     ...props,

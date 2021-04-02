@@ -34,7 +34,7 @@ const Title = styled.h1`
     }
 `;
 
-const Footer = () => {
+const Footer: React.FC = () => {
     return (
         <StyledFooter>
             <Title>Michał Okrasa</Title>
