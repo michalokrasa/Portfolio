@@ -38,26 +38,24 @@ const Card = styled.div`
 interface ProjectCardProps {
     title: string;
     snippet: JSX.Element;
+    isOpen: boolean;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
     children,
     title,
     snippet,
+    isOpen
 }) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const toggleOpen = () => {
-        setIsOpen(!isOpen);
-    };
 
     return (
-        <Card onClick={toggleOpen}>
+        <Card>
             <div className="imageContainer">{snippet}</div>
             <div className="textContainer">
                 <h2>{title}</h2>
                 <p>{children}</p>
             </div>
-            <AnimatePresence>{isOpen && <Content />}</AnimatePresence>
+            {isOpen && <Content />}
         </Card>
     );
 };

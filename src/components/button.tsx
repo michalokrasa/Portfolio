@@ -3,8 +3,7 @@ import styled from "styled-components";
 const Button = styled.button`
     font-family: "Montserrat";
     width: fit-content;
-    /* color: ${({ theme }) => theme.palette.fontSecondary}; */
-    color: #fff;
+    color: ${({ theme }) => theme.palette.white};
     background-color: ${({ theme }) => theme.palette.primary};
     border: none;
     padding: 0.5em 1em;

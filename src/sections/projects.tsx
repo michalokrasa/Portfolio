@@ -71,6 +71,7 @@ const Projects: React.FC = () => {
                         key={project.title}
                         title={project.title}
                         snippet={project.image}
+                        isOpen={false}
                     >
                         {project.text}
                     </ProjectCard>

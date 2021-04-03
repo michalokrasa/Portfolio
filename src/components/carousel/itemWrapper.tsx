@@ -1,7 +1,8 @@
 import { motion, Variants } from "framer-motion";
-import React from "react";
+import React, { useContext } from "react";
 import styled, { css } from "styled-components";
 import { Orientation, PositionName, RotationDirection } from "./types";
+import { CarouselContext } from "./carouselContainer";
 
 const CardHorizontalVariants: Variants = {
     exitPrev: {
@@ -18,7 +19,7 @@ const CardHorizontalVariants: Variants = {
     },
     center: {
         x: "-50%",
-        y: "-55%",
+        y: "-50%",
         opacity: 1,
         zIndex: 10,
     },
@@ -71,11 +72,23 @@ const CardVerticalVariants: Variants = {
 
 interface CarouselItemProps {
     $orientation: Orientation;
+    $isOpen: boolean;
 }
 const StyledItemWrapper = styled(motion.div)<CarouselItemProps>`
     position: absolute;
     left: 50%;
     top: 50%;
+    height: ${({ $isOpen }) => ($isOpen ? "100%" : "auto")};
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: ${({ theme }) => theme.palette.fontSecondary};
+        border-radius: 4px;
+    }
 
     ${(props) =>
         (props.$orientation === "vertical" &&
@@ -84,7 +97,7 @@ const StyledItemWrapper = styled(motion.div)<CarouselItemProps>`
             `) ||
         (props.$orientation === "horizontal" &&
             css`
-                width: auto;
+                width: ${props.$isOpen ? "80%" : "auto"};
             `)}
 `;
 
@@ -113,23 +126,26 @@ const getPrevPosition = (
     );
 
 interface ItemWrapperProps {
-    orientation: Orientation;
-    key: React.Key;
-    rotationDirection: RotationDirection;
     positionIdx: number;
-    itemsCount: number;
+    isOpen?: boolean;
+    key: React.Key;
+    onClick?: () => void;
 }
 
 const ItemWrapper: React.FC<ItemWrapperProps> = ({
     children,
-    orientation,
     positionIdx,
-    rotationDirection,
-    itemsCount,
+    isOpen,
     key,
+    onClick,
 }) => {
+    const { orientation, rotationDirection, itemsCount } = useContext(
+        CarouselContext
+    );
+
     return (
         <StyledItemWrapper
+            $isOpen={isOpen}
             $orientation={orientation}
             variants={
                 orientation === "horizontal"
@@ -142,6 +158,7 @@ const ItemWrapper: React.FC<ItemWrapperProps> = ({
                 itemsCount
             )}
             animate={getPositionName(positionIdx)}
+            onClick={onClick}
             key={key}
         >
             {children}

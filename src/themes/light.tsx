@@ -9,6 +9,7 @@ const lightTheme: DefaultTheme = {
         fontSecondary: "#555",
         background: "#FDFDFD",
         white: "#FFF",
+        tint: "#a7a7a7",
     },
     breakpoints: {
         sm: "320px",
