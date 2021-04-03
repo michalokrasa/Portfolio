@@ -22,11 +22,11 @@ const Wrapper = styled.div`
 const Content = {
     title: "Welcome to my portfolio website 👋",
     text:
-        "As an entry level full stack web developer and soon to \
-    be BSc in Computer Science, I am ready to take my first \
-    steps in commercial projects. So far, I have obtained \
-    experience from plenty of personal and student projects, \
-    which you can find below.",
+        "As an entry level full stack web developer and BSc \
+        in Computer Science, I am ready to take my first \
+        steps in commercial projects. So far, I have obtained \
+        experience from plenty of personal and student projects, \
+        which I present below.",
 };
 
 const Introduction = () => {

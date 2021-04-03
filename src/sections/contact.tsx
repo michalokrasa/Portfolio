@@ -20,7 +20,7 @@ const ContentWrapper = styled.div`
     flex-direction: column;
     height: 100%;
     width: 100%;
-    padding-top: 10%;
+    padding-top: 5%;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
         flex-direction: row;

@@ -1,7 +1,7 @@
 import { StaticImage } from "gatsby-plugin-image";
 import React, { useContext } from "react";
 import { ThemeContext } from "styled-components";
-import Carousel from "../components/carousel";
+import { Carousel } from "../components/carousel";
 import { Section } from "../components/layout";
 import NextSection from "../components/nextSection";
 import ProjectCard from "../components/projectCard";

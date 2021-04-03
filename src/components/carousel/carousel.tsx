@@ -1,36 +1,46 @@
 import { motion, Variants } from "framer-motion";
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { v4 as uuidv4 } from "uuid";
 
 // nuber of items animated
 const ACTIVE_ITEMS = 5;
 
-const CarouselContainer = styled.div<{
-    orientation: "vertical" | "horizontal";
-}>`
+interface CarouselItemProps {
+    $orientation: "vertical" | "horizontal";
+}
+
+const CarouselContainer = styled.div`
     position: relative;
     width: 100%;
     height: 100%;
     border-radius: ${({ theme }) => theme.borderRadius};
     overflow: hidden;
+`;
 
-    .item-wrapper {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: ${({ orientation }) =>
-        orientation === "vertical" ? "100%" : "auto"};
-    }
+const BackgroundItemOverlay = styled(motion.div)`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    background-color: #a7a7a7;
+    border-radius: ${({ theme }) => theme.borderRadius};
+`;
 
-    .background-item-overlay {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 9;
-        background-color: #a7a7a7;
-        border-radius: ${({ theme }) => theme.borderRadius};
-    }
+const ItemWrapper = styled(motion.div)<CarouselItemProps>`
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    ${(props) =>
+        (props.$orientation === "vertical" &&
+            css`
+                width: 100%;
+            `) ||
+        (props.$orientation === "horizontal" &&
+            css`
+                width: auto;
+            `)}
 `;
 
 const CardHorizontalVariants: Variants = {
@@ -129,13 +139,8 @@ const getPosition = (position: number) => {
     }
 };
 
-const getPrevPosition = (position: number, rotation: boolean) =>
-    getPosition((position + (rotation ? -1 : 1)) % ACTIVE_ITEMS);
-
-interface ActiveItem {
-    index: number;
-    id: string;
-}
+const getPrevPosition = (position: number, rotationDirection: boolean) =>
+    getPosition((position + (rotationDirection ? -1 : 1)) % ACTIVE_ITEMS);
 
 const getInitialState = (itemsCount: number) => {
     const activeItems: ActiveItem[] = [];
@@ -162,6 +167,11 @@ const rotateBackward = (activeItems: ActiveItem[], itemsCount: number) =>
         id: idx === 0 ? uuidv4() : arr[idx - 1].id,
     }));
 
+interface ActiveItem {
+    index: number;
+    id: string;
+}
+
 interface CarouselProps {
     items: JSX.Element[];
     orientation?: "vertical" | "horizontal";
@@ -179,9 +189,9 @@ const Carousel: React.FC<CarouselProps> = ({
     const [rotation, setRotation] = useState(false);
 
     return (
-        <CarouselContainer orientation={orientation}>
-            <motion.div
-                className="item-wrapper"
+        <CarouselContainer>
+            <ItemWrapper
+                $orientation={orientation}
                 key={activeItems[0].id}
                 variants={
                     orientation === "horizontal"
@@ -192,9 +202,9 @@ const Carousel: React.FC<CarouselProps> = ({
                 animate="exitPrev"
             >
                 {items[activeItems[0].index]}
-            </motion.div>
-            <motion.div
-                className="item-wrapper"
+            </ItemWrapper>
+            <ItemWrapper
+                $orientation={orientation}
                 key={activeItems[1].id}
                 variants={
                     orientation === "horizontal"
@@ -208,14 +218,13 @@ const Carousel: React.FC<CarouselProps> = ({
                     setActiveItems(rotateBackward(activeItems, items.length));
                 }}
             >
-                <motion.div
-                    className="background-item-overlay"
+                <BackgroundItemOverlay
                     variants={BackgroundItemOverlayVariants}
                 />
                 {items[activeItems[1].index]}
-            </motion.div>
-            <motion.div
-                className="item-wrapper"
+            </ItemWrapper>
+            <ItemWrapper
+                $orientation={orientation}
                 key={activeItems[2].id}
                 variants={
                     orientation === "horizontal"
@@ -226,9 +235,9 @@ const Carousel: React.FC<CarouselProps> = ({
                 animate="center"
             >
                 {items[activeItems[2].index]}
-            </motion.div>
-            <motion.div
-                className="item-wrapper"
+            </ItemWrapper>
+            <ItemWrapper
+                $orientation={orientation}
                 key={activeItems[3].id}
                 variants={
                     orientation === "horizontal"
@@ -242,14 +251,13 @@ const Carousel: React.FC<CarouselProps> = ({
                     setActiveItems(rotateForward(activeItems, items.length));
                 }}
             >
-                <motion.div
-                    className="background-item-overlay"
+                <BackgroundItemOverlay
                     variants={BackgroundItemOverlayVariants}
                 />
                 {items[activeItems[3].index]}
-            </motion.div>
-            <motion.div
-                className="item-wrapper"
+            </ItemWrapper>
+            <ItemWrapper
+                $orientation={orientation}
                 key={activeItems[4].id}
                 variants={
                     orientation === "horizontal"
@@ -260,7 +268,7 @@ const Carousel: React.FC<CarouselProps> = ({
                 animate="exitNext"
             >
                 {items[activeItems[4].index]}
-            </motion.div>
+            </ItemWrapper>
         </CarouselContainer>
     );
 };
