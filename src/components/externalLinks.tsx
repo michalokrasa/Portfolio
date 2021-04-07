@@ -5,18 +5,13 @@ import { ExternalSite } from "../sections/contact";
 const ExternalLinksWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    align-self: flex-end;
     align-items: center;
-    flex: 1;
-
-    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-        align-self: center;
-    }
 
     h2 {
         font-size: 0.8125rem;
         font-weight: ${({ theme }) => theme.weights.semiBold};
         margin: 0.5em 0;
+        color: ${({ theme }) => theme.palette.fontRegular};
 
         @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
             font-size: 1.75rem;
@@ -43,12 +38,16 @@ const ExternalLinksWrapper = styled.div`
     svg {
         width: 1em;
         margin-right: 0.5em;
+
+        path {
+            fill: ${({ theme }) => theme.palette.fontRegular};
+        }
     }
 `;
 
 interface ExternalLinksProps {
-    title: string
-    items: ExternalSite[]
+    title: string;
+    items: ExternalSite[];
 }
 
 const ExternalLinks: React.FC<ExternalLinksProps> = ({ title, items }) => {

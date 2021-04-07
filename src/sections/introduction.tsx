@@ -19,7 +19,7 @@ const Wrapper = styled.div`
     justify-content: center;
 `;
 
-const Content = {
+const content = {
     title: "Welcome to my portfolio website 👋",
     text:
         "As an entry level full stack web developer and BSc \
@@ -33,7 +33,7 @@ const Introduction = () => {
     return (
         <Section id="introduction">
             <Wrapper>
-                <TextCard title={Content.title} text={Content.text}>
+                <TextCard title={content.title} text={content.text}>
                     <ButtonWrapper>
                         <Button onClick={() => navigate("/#contact")}>
                             Hire me

@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 const Card = styled.div`
     width: 100%;
     height: fit-content;
+    max-height: 100%;
     border-radius: ${({ theme }) => theme.borderRadius};
     box-shadow: ${({ theme }) => theme.shadow};
     background-color: ${({ theme }) => theme.palette.background};
@@ -25,10 +26,6 @@ const Card = styled.div`
     &::-webkit-scrollbar-thumb {
         background-color: ${({ theme }) => theme.palette.fontSecondary};
         border-radius: 4px;
-    }
-
-    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-        height: 100%;
     }
 `;
 

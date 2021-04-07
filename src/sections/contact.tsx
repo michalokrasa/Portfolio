@@ -7,12 +7,15 @@ import { Title } from "../components/typography";
 import GitHubIcon from "../assets/svg/github_icon.svg";
 // @ts-ignore
 import LinkedInIcon from "../assets/svg/linkedin_icon.svg";
+// @ts-ignore
+import ProfilesRightBlob from "../assets/svg/Profiles_bottom_right.svg";
 import ExternalLinks from "../components/externalLinks";
 
 const TitleWrapper = styled(Title)`
     display: flex;
     justify-content: flex-start;
     width: 100%;
+    color: ${({ theme }) => theme.palette.white};
 `;
 
 const ContentWrapper = styled.div`
@@ -25,6 +28,29 @@ const ContentWrapper = styled.div`
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
         flex-direction: row;
     }
+`;
+
+const LinksContainer = styled.div`
+    position: relative;
+    flex: 1;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        align-self: center;
+    }
+`;
+
+const LinksBackground = styled(ProfilesRightBlob)`
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    height: 100%;
 `;
 
 export interface ExternalSite {
@@ -49,13 +75,16 @@ const ExternalSites: ExternalSite[] = [
 const Contact: React.FC = () => {
     return (
         <Section id="contact">
-            <TitleWrapper>Contact</TitleWrapper>
+            <TitleWrapper>Contact me</TitleWrapper>
             <ContentWrapper>
                 <Form initialValues={{ email: "", message: "" }} />
-                <ExternalLinks
-                    title="Visit my profiles"
-                    items={ExternalSites}
-                />
+                <LinksContainer>
+                    <LinksBackground />
+                    <ExternalLinks
+                        title="Visit my profiles"
+                        items={ExternalSites}
+                    />
+                </LinksContainer>
             </ContentWrapper>
         </Section>
     );

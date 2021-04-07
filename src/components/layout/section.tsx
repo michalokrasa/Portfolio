@@ -14,7 +14,7 @@ const Wrapper = styled.section`
     align-items: center;
     justify-content: space-between;
 
-    @media (min-width: ${({theme}) => theme.breakpoints.lg}) {
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
         padding-top: 3rem;
     }
 `;
@@ -22,10 +22,15 @@ const Wrapper = styled.section`
 interface SectionProps {
     /** Section id, can be used to link to it. */
     id: string;
+    className?: string;
 }
 
-const Section: React.FC<SectionProps> = ({ id, children }) => {
-    return <Wrapper id={id}>{children}</Wrapper>;
+const Section: React.FC<SectionProps> = ({ id, children, className }) => {
+    return (
+        <Wrapper id={id} className={className}>
+            {children}
+        </Wrapper>
+    );
 };
 
 export default Section;
