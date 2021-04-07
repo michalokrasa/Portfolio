@@ -12,16 +12,24 @@ const Token = styled.div`
     border-radius: 1.5em;
     padding: 0.5em 1em;
     margin-right: 1em;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        font-size: 1rem;
+    }
 `;
 
 const TokensWrapper = styled.div`
     display: flex;
-    margin: 0 1rem;
+    margin: 0 1.5rem;
 `;
 
 const TextWrapper = styled.p`
-    margin: 1rem;
+    margin: 1.5rem;
     font-size: 0.6875rem;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        font-size: 1rem;
+    }
 `;
 
 interface ProjectDescriptionProps {

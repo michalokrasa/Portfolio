@@ -31,11 +31,15 @@ const Card = styled.div`
 
 const CardHeader = styled.div`
     flex-grow: 1;
-    margin: 1rem;
+    margin: 1.5rem;
 
     p {
         font-size: 0.6875rem;
         font-weight: ${({ theme }) => theme.weights.light};
+
+        @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+            font-size: 1.25rem;
+        }
     }
 
     h2 {
