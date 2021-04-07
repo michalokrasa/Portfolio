@@ -12,7 +12,7 @@ const CardHorizontalVariants: Variants = {
         zIndex: -10,
     },
     prev: {
-        x: "-105%",
+        x: "-100%",
         y: "-50%",
         opacity: 0.8,
         zIndex: 8,
@@ -24,7 +24,7 @@ const CardHorizontalVariants: Variants = {
         zIndex: 10,
     },
     next: {
-        x: "5%",
+        x: "0%",
         y: "-50%",
         opacity: 0.8,
         zIndex: 8,
@@ -79,16 +79,9 @@ const StyledItemWrapper = styled(motion.div)<CarouselItemProps>`
     left: 50%;
     top: 50%;
     height: ${({ $isOpen }) => ($isOpen ? "100%" : "auto")};
-    overflow: auto;
-
-    &::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: ${({ theme }) => theme.palette.fontSecondary};
-        border-radius: 4px;
-    }
+    padding: 1rem;
+    display: flex;
+    align-items: center;
 
     ${(props) =>
         (props.$orientation === "vertical" &&
@@ -128,7 +121,6 @@ const getPrevPosition = (
 interface ItemWrapperProps {
     positionIdx: number;
     isOpen?: boolean;
-    key: React.Key;
     onClick?: () => void;
 }
 
@@ -136,7 +128,6 @@ const ItemWrapper: React.FC<ItemWrapperProps> = ({
     children,
     positionIdx,
     isOpen,
-    key,
     onClick,
 }) => {
     const { orientation, rotationDirection, itemsCount } = useContext(
@@ -159,7 +150,7 @@ const ItemWrapper: React.FC<ItemWrapperProps> = ({
             )}
             animate={getPositionName(positionIdx)}
             onClick={onClick}
-            key={key}
+            // key={key}
         >
             {children}
         </StyledItemWrapper>

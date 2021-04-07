@@ -20,7 +20,7 @@ const Container = styled.div`
     height: 100%;
     border-radius: ${({ theme }) => theme.borderRadius};
     overflow: hidden;
-    margin: 1rem 0;
+    padding: 1rem 0;
 `;
 
 interface CarouselContainerProps {

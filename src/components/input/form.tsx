@@ -1,14 +1,11 @@
-import { Form, Formik } from "formik";
 import React from "react";
 import styled from "styled-components";
-import Button from "./button";
-import SuspenseOverlay from "./suspenseOverlay";
+import { Form, Formik } from "formik";
+import Button from "../button";
+import SuspenseOverlay from "../suspenseOverlay";
 import { useToasts } from "react-toast-notifications";
-import { SubmissionError, SubmissionSuccess } from "./toasts";
-import StyledInput from "./input";
-import StyledTextarea from "./textarea";
-import InputErrorMessage from "./inputErrorMessage";
-import StyledLabel from "./inputLabel";
+import { SubmissionError, SubmissionSuccess } from "../toasts";
+import { Input, Label, Textarea, ErrorMessage } from ".";
 
 const StyledForm = styled(Form)`
     position: relative;
@@ -131,21 +128,21 @@ const InputForm: React.FC<InputFormProps> = ({ initialValues }) => {
                     netlify-honeypot="bot-field"
                 >
                     <input type="hidden" name="bot-field" />
-                    <StyledLabel htmlFor="email">Your email</StyledLabel>
-                    <StyledInput
+                    <Label htmlFor="email">Your email</Label>
+                    <Input
                         onChange={handleChange}
                         onBlur={handleBlur}
                         id="email"
                         name="email"
                         type="email"
-                        placeholder="bestCompany@world.com"
+                        placeholder="bestcompany@world.com"
                         $error={!!(errors.email && touched.email)}
                     />
-                    <InputErrorMessage show={!!(errors.email && touched.email)}>
+                    <ErrorMessage show={!!(errors.email && touched.email)}>
                         {errors.email}
-                    </InputErrorMessage>
-                    <StyledLabel htmlFor="message">Message</StyledLabel>
-                    <StyledTextarea
+                    </ErrorMessage>
+                    <Label htmlFor="message">Message</Label>
+                    <Textarea
                         onChange={handleChange}
                         onBlur={handleBlur}
                         id="message"
@@ -153,11 +150,9 @@ const InputForm: React.FC<InputFormProps> = ({ initialValues }) => {
                         placeholder="Let's get in touch!"
                         $error={!!(errors.message && touched.message)}
                     />
-                    <InputErrorMessage
-                        show={!!(errors.message && touched.message)}
-                    >
+                    <ErrorMessage show={!!(errors.message && touched.message)}>
                         {errors.message}
-                    </InputErrorMessage>
+                    </ErrorMessage>
                     <StyledSuspenseOverlay loading={isSubmitting}>
                         <Button type="submit" disabled={isSubmitting}>
                             Send

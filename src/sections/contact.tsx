@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import InputForm from "../components/inputForm";
+import { Form } from "../components/input";
 import { Section } from "../components/layout";
 import { Title } from "../components/typography";
 // @ts-ignore
@@ -51,7 +51,7 @@ const Contact: React.FC = () => {
         <Section id="contact">
             <TitleWrapper>Contact</TitleWrapper>
             <ContentWrapper>
-                <InputForm initialValues={{ email: "", message: "" }} />
+                <Form initialValues={{ email: "", message: "" }} />
                 <ExternalLinks
                     title="Visit my profiles"
                     items={ExternalSites}
