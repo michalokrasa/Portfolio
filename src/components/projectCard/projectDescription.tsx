@@ -26,9 +26,10 @@ const TokensWrapper = styled.div`
 const TextWrapper = styled.p`
     margin: 1.5rem;
     font-size: 0.6875rem;
+    white-space: pre-line;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 `;
 

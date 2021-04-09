@@ -22,7 +22,7 @@
             "links": {
                 "live": "#"
             },
-            "description": "Ambient is my most advanced piece of work. This student project consists of a pill dispenser designed and manufactured by the Ambient team with UX focused on the elderly. I am responsible for the web application and backend infrastructure supporting our device. The project itself demands a wide variety of skills from 3D design, electronics and firmware to backend infrastructure and frontend web application. More than ten people are working on this project. Apart from the design and implementation of most backend and frontend parts, I am a leader of a group of five students that I successfully onboarded and taught the basics of working with Django."
+            "description": "Ambient is my most advanced piece of work. This student project consists of a pill dispenser designed and manufactured by the Ambient team with UX focused on the elderly. I am responsible for the web application and backend infrastructure supporting our device. The project itself demands a wide variety of skills from 3D design, electronics and firmware to backend infrastructure and frontend web application. More than ten people are working on this system. Apart from the design and implementation of most backend and frontend parts, I am a leader of a group of five students that I successfully onboarded and taught the basics of working with Django."
         },
         {
             "title": "Lecture Assistant",
@@ -36,7 +36,7 @@
                 "github": "https://github.com/BalboBigguns/LectureAssistant",
                 "live": "http://ec2-35-156-46-170.eu-central-1.compute.amazonaws.com"
             },
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc laoreet molestie imperdiet. Pellentesque vehicula magna sit amet ultrices feugiat. Donec sit amet ipsum laoreet, varius lectus a, pretium eros. Ut ultrices tincidunt enim. Sed at mattis sem. Sed vestibulum pulvinar scelerisque. Ut et sem justo. In vehicula cursus mauris, eu commodo urna. Duis aliquam neque vitae erat dignissim pretium. Nam a nunc fringilla, tempor turpis in, scelerisque felis. Sed eget elit sit amet risus viverra porta quis vel urna. Ut vestibulum sit amet erat et dignissim. Quisque porttitor elementum risus non consequat. Phasellus quis bibendum metus. Suspendisse leo augue, congue ac metus nec, ultricies ultricies lectus. Morbi quis lorem vestibulum, convallis quam sed, consectetur sem. Proin velit neque, sodales eget venenatis vitae, rhoncus in felis. Vivamus blandit in elit sit amet congue. Pellentesque quis tortor velit. Sed ut scelerisque mauris, eu porttitor nisi. Nullam aliquet egestas nibh, sed consectetur lacus tincidunt ut. Morbi sodales nulla ut purus elementum, eu auctor felis rhoncus. Mauris consequat vitae turpis sed feugiat. Suspendisse eu condimentum eros. Maecenas viverra sem porttitor elit elementum viverra. Aenean nulla tortor, sollicitudin nec lorem et, maximus consequat ipsum. In hac habitasse platea dictumst. Fusce dapibus rhoncus diam id suscipit. Mauris venenatis enim eget neque feugiat, eget consequat arcu cursus. Nam venenatis condimentum erat cursus ullamcorper. Morbi sed ante ante. Etiam pretium ante ante, at ullamcorper dui viverra vitae. Suspendisse metus purus"
+            "description": "Lecture Assistant is the system meant to help teachers improve presentational skills during COVID-19 induced e-learning. I developed it in the scope of my engineering thesis and got the highest mark, together with the explicit appreciation for its research-based background. This project is the most complex system I have designed and developed. It comprises multiple services connected with docker and relies on audio processing algorithms that I did not know about before the project. I have greatly improved my data processing and docker-related skills with it. The system has been deployed to AWS cloud and the live view may still be accessible."
         },
         {
             "title": "Portfolio Website",
@@ -50,7 +50,7 @@
                 "github": "https://github.com/BalboBigguns/Portfolio",
                 "live": "https://portfolio-okrasa.netlify.app"
             },
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc laoreet molestie imperdiet. Pellentesque vehicula magna sit amet ultrices feugiat. Donec sit amet ipsum laoreet, varius lectus a, pretium eros. Ut ultrices tincidunt enim. Sed at mattis sem. Sed vestibulum pulvinar scelerisque. Ut et sem justo. In vehicula cursus mauris, eu commodo urna. Duis aliquam neque vitae erat dignissim pretium. Nam a nunc fringilla, tempor turpis in, scelerisque felis. Sed eget elit sit amet risus viverra porta quis vel urna. Ut vestibulum sit amet erat et dignissim. Quisque porttitor elementum risus non consequat. Phasellus quis bibendum metus. Suspendisse leo augue, congue ac metus nec, ultricies ultricies lectus. Morbi quis lorem vestibulum, convallis quam sed, consectetur sem. Proin velit neque, sodales eget venenatis vitae, rhoncus in felis. Vivamus blandit in elit sit amet congue. Pellentesque quis tortor velit. Sed ut scelerisque mauris, eu porttitor nisi. Nullam aliquet egestas nibh, sed consectetur lacus tincidunt ut. Morbi sodales nulla ut purus elementum, eu auctor felis rhoncus. Mauris consequat vitae turpis sed feugiat. Suspendisse eu condimentum eros. Maecenas viverra sem porttitor elit elementum viverra. Aenean nulla tortor, sollicitudin nec lorem et, maximus consequat ipsum. In hac habitasse platea dictumst. Fusce dapibus rhoncus diam id suscipit. Mauris venenatis enim eget neque feugiat, eget consequat arcu cursus. Nam venenatis condimentum erat cursus ullamcorper. Morbi sed ante ante. Etiam pretium ante ante, at ullamcorper dui viverra vitae. Suspendisse metus purus"
+            "description": "My personal portfolio site you are visiting right now. While creating it I have learned the basics of Gatsby, Styled Components and Framer Motion. \n\nPS. \nI am quite proud of this carousel, not gonna lie."
         },
         {
             "title": "Google Timetable",
@@ -63,7 +63,21 @@
             "links": {
                 "github": "https://github.com/BalboBigguns/GoogleTimetable"
             },
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc laoreet molestie imperdiet. Pellentesque vehicula magna sit amet ultrices feugiat. Donec sit amet ipsum laoreet, varius lectus a, pretium eros. Ut ultrices tincidunt enim. Sed at mattis sem. Sed vestibulum pulvinar scelerisque. Ut et sem justo. In vehicula cursus mauris, eu commodo urna. Duis aliquam neque vitae erat dignissim pretium. Nam a nunc fringilla, tempor turpis in, scelerisque felis. Sed eget elit sit amet risus viverra porta quis vel urna. Ut vestibulum sit amet erat et dignissim. Quisque porttitor elementum risus non consequat. Phasellus quis bibendum metus. Suspendisse leo augue, congue ac metus nec, ultricies ultricies lectus. Morbi quis lorem vestibulum, convallis quam sed, consectetur sem. Proin velit neque, sodales eget venenatis vitae, rhoncus in felis. Vivamus blandit in elit sit amet congue. Pellentesque quis tortor velit. Sed ut scelerisque mauris, eu porttitor nisi. Nullam aliquet egestas nibh, sed consectetur lacus tincidunt ut. Morbi sodales nulla ut purus elementum, eu auctor felis rhoncus. Mauris consequat vitae turpis sed feugiat. Suspendisse eu condimentum eros. Maecenas viverra sem porttitor elit elementum viverra. Aenean nulla tortor, sollicitudin nec lorem et, maximus consequat ipsum. In hac habitasse platea dictumst. Fusce dapibus rhoncus diam id suscipit. Mauris venenatis enim eget neque feugiat, eget consequat arcu cursus. Nam venenatis condimentum erat cursus ullamcorper. Morbi sed ante ante. Etiam pretium ante ante, at ullamcorper dui viverra vitae. Suspendisse metus purus"
+            "description": "The effect of being locked up during my Erasmus exchange (and my drive for automation too). Having access to university time schedules of all the faculties and majors and attending courses from different levels and departments I have decided it is time to up my scheduling game. This project is a direct result of my approach to automation by tampering with google calendar API and Selenium scraping. I can't say it is a complete and bulletproof solution but it did its job fairly well. It was robust enough for me not to be afraid of missing any classes."
+        },
+        {
+            "title": "ExerciseIt",
+            "text": "Knowledge management app.",
+            "image": {
+                "src": "./images/ExerciseIt.png",
+                "alt": "ExerciseIt screenshot"
+            },
+            "stack": ["Node", "Express", "MongoDB"],
+            "links": {
+                "github": "https://github.com/BalboBigguns/ExerciseIt-Backend",
+                "live": "https://balbobigguns.github.io/ExerciseIt/"
+            },
+            "description": "ExerciseIt is my idea for application embracing learning and self-growth, primarily focused on IT-related materials. The project assumes developing an app that allows saving and managing different sources of learning materials like YT tutorials, e-books etc. Unfortunately, I had to abandon this project a while ago due to the lack of time but I am still in love with the simplicity of developing an Express backend. I hope to get back to working on it after finishing currently open projects."
         }
     ],
     "skills": {
