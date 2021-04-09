@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import styled, { ThemeContext } from "styled-components";
 import FadeInOverlay from "./projectCardFadeInOverlay";
 import ProjectDescription from "./projectDescription";
@@ -7,6 +7,7 @@ import GitHubIcon from "../../assets/svg/github_icon.svg";
 // @ts-ignore
 import LiveView from "../../assets/svg/globe_icon.svg";
 import { motion } from "framer-motion";
+import scrollParentToChild from "../../utils/scrollParentToChild";
 
 const Card = styled.div`
     width: 100%;
@@ -97,9 +98,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     isOpen,
 }) => {
     const theme = useContext(ThemeContext);
+    const childRef = useRef(null);
+    const parentRef = useRef(null);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            if (isOpen) {
+                scrollParentToChild(parentRef.current, childRef.current);
+            }
+        }, 300);
+
+        return () => {
+            clearTimeout(timeout);
+        };
+    }, [isOpen]);
 
     return (
-        <Card>
+        <Card ref={parentRef}>
             <ImageContainer>
                 {isOpen && (
                     <FadeInOverlay>
@@ -132,7 +147,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 <p>{children}</p>
             </CardHeader>
             {isOpen && (
-                <ProjectDescription stack={stack} description={description} />
+                <ProjectDescription
+                    ref={childRef}
+                    stack={stack}
+                    description={description}
+                />
             )}
         </Card>
     );

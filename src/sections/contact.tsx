@@ -30,9 +30,24 @@ const ContentWrapper = styled.div`
     }
 `;
 
-const LinksContainer = styled.div`
-    position: relative;
+const StyledForm = styled(Form)`
     flex: 1;
+    justify-content: center;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        justify-content: flex-start;
+    }
+`;
+
+const Spacer = styled.div`
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        flex: 0.2;
+    }
+`;
+
+const LinksContainer = styled.div`
+    flex: 1;
+    position: relative;
     align-self: flex-end;
     display: flex;
     align-items: center;
@@ -41,6 +56,7 @@ const LinksContainer = styled.div`
 
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
         align-self: center;
+        flex: 0.8;
     }
 `;
 
@@ -77,7 +93,8 @@ const Contact: React.FC = () => {
         <Section id="contact">
             <TitleWrapper>Contact me</TitleWrapper>
             <ContentWrapper>
-                <Form initialValues={{ email: "", message: "" }} />
+                <StyledForm initialValues={{ email: "", message: "" }} />
+                <Spacer />
                 <LinksContainer>
                     <LinksBackground />
                     <ExternalLinks

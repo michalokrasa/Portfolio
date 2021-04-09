@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled(motion.div)``;
@@ -37,20 +37,20 @@ interface ProjectDescriptionProps {
     description: string;
 }
 
-const ProjectDescription: React.FC<ProjectDescriptionProps> = ({
-    stack,
-    description,
-}) => {
+const ProjectDescription = React.forwardRef<
+    HTMLParagraphElement,
+    ProjectDescriptionProps
+>((props, ref) => {
     return (
         <Wrapper initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <TokensWrapper>
-                {stack.map((tech) => (
+                {props.stack.map((tech) => (
                     <Token key={tech}>{tech}</Token>
                 ))}
             </TokensWrapper>
-            <TextWrapper>{description}</TextWrapper>
+            <TextWrapper ref={ref}>{props.description}</TextWrapper>
         </Wrapper>
     );
-};
+});
 
 export default ProjectDescription;

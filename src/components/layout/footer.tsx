@@ -5,7 +5,7 @@ const StyledFooter = styled.footer`
     width: 100%;
     display: flex;
     z-index: 20;
-    padding: 1rem 1rem;
+    padding: 1rem;
     position: absolute;
     top: calc(400 * var(--vh));
     box-shadow: ${({ theme }) => theme.shadow};
@@ -13,11 +13,7 @@ const StyledFooter = styled.footer`
 
     
     @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-        padding: 2rem 2rem;
-    }
-
-    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-        padding: 3rem 3rem;
+        padding: 2.5rem;
     }
 `;
 
@@ -29,7 +25,7 @@ const Title = styled.h1`
     font-weight: ${({ theme }) => theme.weights.bold};
 
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-        font-size: 2.188rem;
+        font-size: 1.875rem;
         font-weight: ${({ theme }) => theme.weights.extraBold};
     }
 `;

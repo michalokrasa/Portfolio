@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Title } from "../components/typography";
 import { Section } from "../components/layout";
-
 import NextSection from "../components/nextSection";
 import SkillList from "../components/skillList";
+import { graphql, useStaticQuery } from "gatsby";
 
 const TitleWrapper = styled(Title)`
     display: flex;
@@ -32,38 +32,32 @@ const LayoutWrapper = styled.div`
     }
 `;
 
-const FrontendSkills = [
-    "React",
-    "Gatsby",
-    "Framer Motion",
-    "Styled Components",
-    "Material UI",
-];
-
-const BackendSkills = [
-    "Node",
-    "Express",
-    "Django",
-    "PostgreSQL",
-    "MongoDB",
-    "Swagger",
-];
-
-const DevopsSkills = ["Docker", "AWS", "GitHub"];
-
 const Skills: React.FC = () => {
+    const { dataJson } = useStaticQuery(graphql`
+        query SkillsQuery {
+            dataJson {
+                skills {
+                    frontend
+                    backend
+                    devops
+                }
+            }
+        }
+    `);
+    const { frontend, backend, devops } = dataJson.skills;
+
     return (
         <Section id="skills">
             <TitleWrapper>Skills</TitleWrapper>
             <ContentWrapper>
                 <LayoutWrapper>
-                    <SkillList items={FrontendSkills} />
+                    <SkillList items={frontend} />
                 </LayoutWrapper>
                 <LayoutWrapper>
-                    <SkillList items={BackendSkills} />
+                    <SkillList items={backend} />
                 </LayoutWrapper>
                 <LayoutWrapper>
-                    <SkillList items={DevopsSkills} />
+                    <SkillList items={devops} />
                 </LayoutWrapper>
             </ContentWrapper>
             <NextSection link="#contact" />

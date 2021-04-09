@@ -13,7 +13,6 @@ const StyledForm = styled(Form)`
     width: 100%;
     position: relative;
     display: flex;
-    flex: 1;
     flex-direction: column;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
@@ -57,9 +56,10 @@ interface InputFormProps {
         email: string;
         message: string;
     };
+    className?: string;
 }
 
-const InputForm: React.FC<InputFormProps> = ({ initialValues }) => {
+const InputForm: React.FC<InputFormProps> = ({ initialValues, className }) => {
     const { addToast } = useToasts();
 
     return (
@@ -122,6 +122,7 @@ const InputForm: React.FC<InputFormProps> = ({ initialValues }) => {
         >
             {({ errors, touched, isSubmitting, handleChange, handleBlur }) => (
                 <StyledForm
+                    className={className}
                     name="contact"
                     method="POST"
                     data-netlify="true"

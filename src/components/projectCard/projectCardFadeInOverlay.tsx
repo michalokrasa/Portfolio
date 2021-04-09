@@ -10,10 +10,14 @@ const Overlay = styled(motion.div)`
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: ${({ theme }) =>
         `${theme.borderRadius} ${theme.borderRadius} 0 0`};
-    opacity: 0;
+    opacity: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        opacity: 0;
+    }
 `;
 
 const FadeInOverlay: React.FC = ({ children }) => {

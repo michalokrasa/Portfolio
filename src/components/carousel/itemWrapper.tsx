@@ -10,6 +10,9 @@ const CardHorizontalVariants: Variants = {
         y: "-50%",
         opacity: 0,
         zIndex: -10,
+        transition: {
+            duration: 0,
+        },
     },
     prev: {
         x: "-100%",
@@ -34,6 +37,9 @@ const CardHorizontalVariants: Variants = {
         y: "-50%",
         opacity: 0,
         zIndex: -10,
+        transition: {
+            duration: 0,
+        },
     },
 };
 
@@ -43,6 +49,9 @@ const CardVerticalVariants: Variants = {
         y: "-150%",
         opacity: 0,
         zIndex: -10,
+        transition: {
+            delay: 0,
+        },
     },
     prev: {
         x: "-50%",
@@ -67,6 +76,9 @@ const CardVerticalVariants: Variants = {
         y: "50%",
         opacity: 0,
         zIndex: -10,
+        transition: {
+            delay: 0,
+        },
     },
 };
 
