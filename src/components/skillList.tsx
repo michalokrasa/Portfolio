@@ -19,6 +19,7 @@ const List = styled.ul`
 
     li {
         display: flex;
+        align-items: center;
 
         svg {
             width: 1em;

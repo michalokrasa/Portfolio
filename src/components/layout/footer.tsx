@@ -13,7 +13,7 @@ const StyledFooter = styled.footer`
 
     
     @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-        padding: 2.5rem;
+        padding: 2rem 3rem;
     }
 `;
 
@@ -25,7 +25,7 @@ const Title = styled.h1`
     font-weight: ${({ theme }) => theme.weights.bold};
 
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-        font-size: 1.875rem;
+        font-size: 1.5rem;
         font-weight: ${({ theme }) => theme.weights.extraBold};
     }
 `;

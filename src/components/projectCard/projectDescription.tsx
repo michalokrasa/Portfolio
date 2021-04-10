@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled(motion.div)``;

@@ -4,17 +4,29 @@ const useMediaQuery = (query: string) => {
     const [matches, setMatches] = useState(false);
 
     useEffect(() => {
-        const media = window.matchMedia(query);
-        if (media.matches !== matches) {
-            setMatches(media.matches);
+        if (window) {
+            const media = window.matchMedia(query);
+
+            if (media.matches !== matches) {
+                setMatches(media.matches);
+            }
+            const listener = () => {
+                setMatches(media.matches);
+            };
+
+            try {
+                // for normal browsers
+                media.addEventListener("change", listener);
+
+                return () => media.removeEventListener("change", listener);
+            } catch (error) {
+                // for old safari
+                console.log(error);
+                media.addListener(listener);
+
+                return () => media.removeListener(listener);
+            }
         }
-        const listener = () => {
-            setMatches(media.matches);
-        };
-
-        media.addEventListener("change", listener);
-
-        return () => media.removeEventListener("change", listener);
     }, [matches, query]);
 
     return matches;
