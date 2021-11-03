@@ -62,7 +62,7 @@ const StyledBurgerVariants: Variants = {
     exit: {
         opacity: 0,
         transition: {
-            duration: 0.5,
+            duration: 0.2,
         },
     },
 };

@@ -26,7 +26,7 @@ const BurgerableNav: React.FC<BurgerableNavProps> = ({ menuItems }) => {
     const isLargeScreen = useMediaQueryEffect(
         `(min-width: ${theme.breakpoints.lg})`
     );
-
+    
     useScrollPosition(
         ({ prevPos, currPos }) => {
             const ScrollActivationThreshhold = -50;
@@ -56,12 +56,13 @@ const BurgerableNav: React.FC<BurgerableNavProps> = ({ menuItems }) => {
                     <NavBar layout>
                         <AnimatePresence>
                             {isLargeScreen && !isScrolled && (
-                                <HeaderMenu items={menuItems} />
+                                <HeaderMenu key="header-menu" items={menuItems} />
                             )}
                         </AnimatePresence>
                         <AnimatePresence>
                             {(isScrolled || !isLargeScreen) && (
                                 <BurgerButton
+                                    key="burger-button"
                                     open={open}
                                     setOpen={setOpen}
                                     aria-controls={menuId}
