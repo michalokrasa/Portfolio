@@ -5,7 +5,6 @@ const MainContainer = styled.main`
     display: flex;
     flex-direction: column;
     z-index: 10;
-    overflow: hidden;
 
     @media (min-width: ${(props) => props.theme.breakpoints.sm}) {
         padding: 0 2rem;

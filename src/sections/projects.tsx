@@ -23,7 +23,9 @@ const Projects: React.FC = () => {
                     image {
                         src {
                             childImageSharp {
-                                gatsbyImageData(placeholder: BLURRED)
+                                gatsbyImageData(
+                                    placeholder: BLURRED
+                                )
                             }
                         }
                         alt
@@ -42,7 +44,7 @@ const Projects: React.FC = () => {
 
     return (
         <Section id="projects">
-            <Title>Projects</Title>
+            <Title>Personal projects</Title>
             <Carousel
                 orientation={isLargeScreen ? "horizontal" : "vertical"}
                 items={projects.map((project) => (

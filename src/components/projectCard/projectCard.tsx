@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
-import styled, { ThemeContext } from "styled-components";
+import styled, { css, ThemeContext } from "styled-components";
 import FadeInOverlay from "./projectCardFadeInOverlay";
 import ProjectDescription from "./projectDescription";
 // @ts-ignore
@@ -12,6 +12,7 @@ import scrollParentToChild from "../../utils/scrollParentToChild";
 const Card = styled.div`
     width: 100%;
     height: fit-content;
+    height: 100%;
     max-height: 100%;
     border-radius: ${({ theme }) => theme.borderRadius};
     box-shadow: ${({ theme }) => theme.shadow};
@@ -31,7 +32,7 @@ const Card = styled.div`
 `;
 
 const CardHeader = styled.div`
-    flex-grow: 1;
+    
     margin: 1.5rem;
 
     p {
@@ -54,6 +55,7 @@ const CardHeader = styled.div`
 `;
 
 const ImageContainer = styled.div`
+    flex: 1;
     position: relative;
     display: flex;
     justify-content: center;
@@ -69,7 +71,16 @@ const LinkIcon = styled(motion.a)<{ $active: boolean }>`
     height: 4rem;
     width: 4rem;
     margin: 1rem;
-    cursor: ${({ $active }) => ($active ? "pointer" : "default")};
+    cursor: default;
+    pointer-events: none;
+
+    ${({$active}) =>
+        $active &&
+        css`
+            cursor: pointer;
+            pointer-events: auto;
+        `}
+
     path {
         fill: ${({ theme, $active }) =>
             $active ? theme.palette.primary : theme.palette.fontSecondary};

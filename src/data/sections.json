@@ -1,7 +1,7 @@
 {
     "introduction": {
         "title": "Welcome to my portfolio website 👋",
-        "text": "As an entry level full stack web developer and BSc in Computer Science, I am ready to take my first steps in commercial projects. So far, I have obtained experience from plenty of personal and student projects, which I present below."
+        "text": "As a junior full-stack web developer with BSc in Computer Science, I have already taken my first steps in commercial projects. My go-to stack consists of React ecosystem on the frontend and node-based backend services written in typescript. So far, I've gathered remarkable experience creating headless e-commerce applications integrated with the most popular engines. Apart from that, I've had opportunities to work on admin panel application and custom streaming service solution."
     },
     "projects": [
         {
@@ -45,7 +45,7 @@
                 "src": "./images/Portfolio.png",
                 "alt": "Portfolio screenshot"
             },
-            "stack": ["Gatsby", "React", "Styled Components", "TypeScript"],
+            "stack": ["Gatsby", "React", "TypeScript", "Styled Components"],
             "links": {
                 "github": "https://github.com/BalboBigguns/Portfolio",
                 "live": "https://portfolio-okrasa.netlify.app"
@@ -83,16 +83,20 @@
     "skills": {
         "frontend": [
             "React",
+            "Redux",
+            "React Static",
             "Gatsby",
             "Framer Motion",
             "Styled Components",
+            "Tailwind",
             "Material UI"
         ],
         "backend": [
             "Node",
             "Express",
-            "Django",
+            "TypeORM",
             "PostgreSQL",
+            "Django",
             "MongoDB",
             "Swagger"
         ],

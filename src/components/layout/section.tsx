@@ -2,8 +2,7 @@ import styled from "styled-components";
 import React from "react";
 
 const Wrapper = styled.section`
-    height: 100vh;
-    height: calc(100 * var(--vh));
+    height: var(--section-height);
     transition: height 0.5s ease-in-out;
 
     width: 100%;

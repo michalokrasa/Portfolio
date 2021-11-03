@@ -136,7 +136,7 @@ const InputForm: React.FC<InputFormProps> = ({ initialValues, className }) => {
                         id="email"
                         name="email"
                         type="email"
-                        placeholder="bestcompany@world.com"
+                        placeholder="yourcompany@email.com"
                         $error={!!(errors.email && touched.email)}
                     />
                     <ErrorMessage show={!!(errors.email && touched.email)}>

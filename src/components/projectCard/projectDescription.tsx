@@ -12,6 +12,8 @@ const Token = styled.div`
     border-radius: 1.5em;
     padding: 0.5em 1em;
     margin-right: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
         font-size: 1rem;
@@ -20,6 +22,7 @@ const Token = styled.div`
 
 const TokensWrapper = styled.div`
     display: flex;
+    flex-wrap: wrap;
     margin: 0 1.5rem;
 `;
 

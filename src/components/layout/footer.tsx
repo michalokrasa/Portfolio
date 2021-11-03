@@ -7,7 +7,7 @@ const StyledFooter = styled.footer`
     z-index: 20;
     padding: 1rem;
     position: absolute;
-    top: calc(400 * var(--vh));
+    top: calc(4 * var(--section-height));
     box-shadow: ${({ theme }) => theme.shadow};
     transform: translateY(-100%);
 

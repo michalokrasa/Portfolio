@@ -28,8 +28,7 @@ const AboutLeftBlobStyled = styled(AboutLeftBlob)`
     top: 0px;
     left: 0px;
     width: 300px;
-    height: 300px;
-    height: calc(50 * var(--vh));
+    height: calc(0.5 * var(--section-height));
 
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
         width: 700px;
@@ -40,8 +39,7 @@ const AboutLeftBlobStyled = styled(AboutLeftBlob)`
 const AboutRightBlobStyled = styled(AboutRightBlob)`
     position: absolute;
     right: 0px;
-    top: 100vh;
-    top: calc(100 * var(--vh));
+    top: var(--section-height);
     transform: translateY(-50%);
     width: 50vw;
     height: auto;
@@ -54,8 +52,7 @@ const AboutRightBlobStyled = styled(AboutRightBlob)`
 const ProjectsLeftBlobStyled = styled(ProjectsLeftBlob)`
     position: absolute;
     left: 0px;
-    top: 100vh;
-    top: calc(100 * var(--vh));
+    top: var(--section-height);
     width: 100vw;
     height: auto;
 `;
@@ -63,8 +60,7 @@ const ProjectsLeftBlobStyled = styled(ProjectsLeftBlob)`
 const SkillsRightBlobStyled = styled(SkillsRightBlob)`
     position: absolute;
     right: 0px;
-    top: 200vh;
-    top: calc(200 * var(--vh));
+    top: calc(2 * var(--section-height));
     transform: translateY(-55%);
     width: 200px;
     height: auto;
@@ -77,8 +73,7 @@ const SkillsRightBlobStyled = styled(SkillsRightBlob)`
 const SkillsLeftBlobStyled = styled(SkillsLeftBlob)`
     position: absolute;
     left: -100px;
-    top: 300vh;
-    top: calc(300 * var(--vh));
+    top: calc(3 *var(--section-height));
     transform: translateY(-65%);
     width: 400px;
     height: auto;
@@ -91,8 +86,7 @@ const SkillsLeftBlobStyled = styled(SkillsLeftBlob)`
 const DjangoBubbleStyled = styled(DjangoBubble)`
     position: absolute;
     right: 130px;
-    top: 215vh;
-    top: calc(215 * var(--vh));
+    top: calc(2.15 * var(--section-height));
     height: auto;
     width: 35px;
 
@@ -105,8 +99,7 @@ const DjangoBubbleStyled = styled(DjangoBubble)`
 const ExpressBubbleStyled = styled(ExpressBubble)`
     position: absolute;
     right: 70px;
-    top: 220vh;
-    top: calc(220 * var(--vh));
+    top: calc(2.2 * var(--section-height));
     height: auto;
     width: 45px;
 
@@ -119,8 +112,7 @@ const ExpressBubbleStyled = styled(ExpressBubble)`
 const GatsbyBubbleStyled = styled(GatsbyBubble)`
     position: absolute;
     left: 10px;
-    top: 260vh;
-    top: calc(260 * var(--vh));
+    top: calc(2.6 * var(--section-height));
     height: auto;
     width: 70px;
 
@@ -133,8 +125,7 @@ const GatsbyBubbleStyled = styled(GatsbyBubble)`
 const JSBubbleStyled = styled(JSBubble)`
     position: absolute;
     left: 50px;
-    top: 250vh;
-    top: calc(250 * var(--vh));
+    top: calc(2.5 * var(--section-height));
     height: auto;
     width: 40px;
 
@@ -147,8 +138,7 @@ const JSBubbleStyled = styled(JSBubble)`
 const NodeBubbleStyled = styled(NodeBubble)`
     position: absolute;
     right: 20px;
-    top: 230vh;
-    top: calc(230 * var(--vh));
+    top: calc(2.3 * var(--section-height));
     width: 100px;
     height: auto;
 
@@ -161,8 +151,7 @@ const NodeBubbleStyled = styled(NodeBubble)`
 const ReactBubbleStyled = styled(ReactBubble)`
     position: absolute;
     left: 200px;
-    top: 270vh;
-    top: calc(270 * var(--vh));
+    top: calc(2.7 * var(--section-height));
     width: 50px;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
@@ -176,8 +165,7 @@ const Wrapper = styled.div`
     top: 0px;
     left: 0px;
     width: 100%;
-    height: 400vh;
-    height: calc(400 * var(--vh));
+    height: calc(4 * var(--section-height));
     z-index: -1;
     overflow: hidden;
 `;

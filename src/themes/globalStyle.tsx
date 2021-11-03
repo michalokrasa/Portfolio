@@ -18,6 +18,16 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'Montserrat';
         background-color: #FDFDFD;
+
+        --section-height: 800px;
+
+        @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+            --section-height: 1000px;
+        }
+
+        @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+            --section-height: 1200px;
+        }
     }
 
     body::-webkit-scrollbar {

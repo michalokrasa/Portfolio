@@ -6,6 +6,7 @@ interface Palette {
     fontSecondary: string;
     background: string;
     white: string;
+    tint: string;
 }
 
 interface Breakpoints {
@@ -34,5 +35,6 @@ declare module "styled-components" {
         weights: Weights;
         borderRadius: string;
         shadow: string;
+        sectionHeight: string;
     }
 }

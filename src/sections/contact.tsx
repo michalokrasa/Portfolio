@@ -46,17 +46,19 @@ const Spacer = styled.div`
 `;
 
 const LinksContainer = styled.div`
-    flex: 1;
     position: relative;
+    flex: 1;
     align-self: flex-end;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 50%;
+    margin-right: 50px;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
         align-self: center;
         flex: 0.8;
+        margin-right: 0;
     }
 `;
 
@@ -65,8 +67,12 @@ const LinksBackground = styled(ProfilesRightBlob)`
     z-index: -1;
     top: 0px;
     left: 50%;
-    transform: translate(-50%, 10%);
+    transform: translate(-50%, 5%) scale(50%);
     height: 100%;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        transform: translate(-50%, 10%) ;
+    }
 `;
 
 export interface ExternalSite {

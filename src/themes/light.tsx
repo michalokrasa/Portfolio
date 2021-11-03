@@ -26,6 +26,7 @@ const lightTheme: DefaultTheme = {
         bold: 700,
         extraBold: 800,
     },
+    sectionHeight: "1200px",
 };
 
 export default lightTheme;

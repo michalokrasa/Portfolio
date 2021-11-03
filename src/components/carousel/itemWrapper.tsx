@@ -90,7 +90,6 @@ const StyledItemWrapper = styled(motion.div)<CarouselItemProps>`
     position: absolute;
     left: 50%;
     top: 50%;
-    height: ${({ $isOpen }) => ($isOpen ? "100%" : "auto")};
     padding: 1rem;
     display: flex;
     align-items: center;
@@ -103,6 +102,7 @@ const StyledItemWrapper = styled(motion.div)<CarouselItemProps>`
         (props.$orientation === "horizontal" &&
             css`
                 width: ${props.$isOpen ? "80%" : "auto"};
+                height: ${props.$isOpen ? "100%" : "80%"};
             `)}
 `;
 
