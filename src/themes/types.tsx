@@ -13,6 +13,8 @@ interface Breakpoints {
     sm: string;
     md: string;
     lg: string;
+    xl: string;
+    xxl: string;
 }
 
 interface Weights {

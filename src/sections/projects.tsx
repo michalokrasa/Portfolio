@@ -1,13 +1,22 @@
 import { graphql, useStaticQuery } from "gatsby";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import React, { useContext } from "react";
-import { ThemeContext } from "styled-components";
+import styled, { ThemeContext } from "styled-components";
 import { Carousel } from "../components/carousel";
 import { Section } from "../components/layout";
-import NextSection from "../components/nextSection";
 import { ProjectCard } from "../components/projectCard";
 import { Title } from "../components/typography";
 import { useMediaQueryEffect } from "../hooks";
+
+const Wrapper = styled.div`
+    display: flex;
+    width: calc(90% + 2rem);
+    height: 100%;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        width: calc(80% + 2rem);
+    }
+`;
 
 const Projects: React.FC = () => {
     const theme = useContext(ThemeContext);
@@ -23,9 +32,7 @@ const Projects: React.FC = () => {
                     image {
                         src {
                             childImageSharp {
-                                gatsbyImageData(
-                                    placeholder: BLURRED
-                                )
+                                gatsbyImageData(placeholder: BLURRED)
                             }
                         }
                         alt
@@ -45,28 +52,29 @@ const Projects: React.FC = () => {
     return (
         <Section id="projects">
             <Title>Personal projects</Title>
-            <Carousel
-                orientation={isLargeScreen ? "horizontal" : "vertical"}
-                items={projects.map((project) => (
-                    <ProjectCard
-                        key={project.title}
-                        title={project.title}
-                        image={
-                            <GatsbyImage
-                                image={getImage(project.image.src)}
-                                alt={project.image.alt}
-                            />
-                        }
-                        description={project.description}
-                        stack={project.stack}
-                        links={project.links}
-                        isOpen={false}
-                    >
-                        {project.text}
-                    </ProjectCard>
-                ))}
-            />
-            <NextSection link="#skills" />
+            <Wrapper>
+                <Carousel
+                    orientation={isLargeScreen ? "horizontal" : "vertical"}
+                    items={projects.map((project) => (
+                        <ProjectCard
+                            key={project.title}
+                            title={project.title}
+                            image={
+                                <GatsbyImage
+                                    image={getImage(project.image.src)}
+                                    alt={project.image.alt}
+                                />
+                            }
+                            description={project.description}
+                            stack={project.stack}
+                            links={project.links}
+                            isOpen={false}
+                        >
+                            {project.text}
+                        </ProjectCard>
+                    ))}
+                />
+            </Wrapper>
         </Section>
     );
 };

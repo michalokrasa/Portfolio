@@ -46,14 +46,12 @@ const ExternalLinksWrapper = styled.div`
 `;
 
 interface ExternalLinksProps {
-    title: string;
     items: ExternalSite[];
 }
 
-const ExternalLinks: React.FC<ExternalLinksProps> = ({ title, items }) => {
+const ExternalLinks: React.FC<ExternalLinksProps> = ({ items }) => {
     return (
         <ExternalLinksWrapper>
-            <h2>{title}</h2>
             <ul>
                 {items.map((site) => (
                     <li key={site.href}>

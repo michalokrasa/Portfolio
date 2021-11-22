@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 const Overlay = styled(motion.div)`
     position: absolute;
-    width: calc(100% - 2rem);
-    height: calc(100% - 2rem);
+    width: calc(100%);
+    height: calc(100%);
     z-index: 9;
     background-color: ${({ theme }) => theme.palette.tint};
     border-radius: ${({ theme }) => theme.borderRadius};
