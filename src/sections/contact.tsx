@@ -22,11 +22,12 @@ const ContentWrapper = styled.div`
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 100%;
+    width: 90%;
     padding-top: 1rem;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
         flex-direction: row;
+        width: 80%;
     }
 `;
 
@@ -35,13 +36,8 @@ const StyledForm = styled(Form)`
     justify-content: center;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        flex: 2;
         justify-content: flex-start;
-    }
-`;
-
-const Spacer = styled.div`
-    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-        flex: 0.2;
     }
 `;
 
@@ -50,28 +46,41 @@ const LinksContainer = styled.div`
     flex: 1;
     align-self: flex-end;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50%;
-    margin-right: 50px;
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: 180px;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        justify-content: center;
+        align-items: center;
         align-self: center;
-        flex: 0.8;
+        flex: 1;
         margin-right: 0;
+        margin-left: 4rem;
+        min-width: 300px;
     }
 `;
 
-const LinksBackground = styled(ProfilesRightBlob)`
+const LinksBackgroundWrapper = styled.div`
     position: absolute;
     z-index: -1;
-    top: 0px;
-    left: 50%;
-    transform: translate(-50%, 5%) scale(50%);
-    height: 100%;
+    right: 0;
+    width: 180px;
+    transform: translate(30px, 0);
+
 
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-        transform: translate(-50%, 10%) ;
+        width: 100%;
+        min-width: 300px;
+        transform: translate(-10px, 22px);
+    }
+`;
+
+const LinkTextWrapper = styled.div`
+    padding-top: 4rem;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        padding-top: 0;
     }
 `;
 
@@ -100,13 +109,13 @@ const Contact: React.FC = () => {
             <TitleWrapper>Contact me</TitleWrapper>
             <ContentWrapper>
                 <StyledForm initialValues={{ email: "", message: "" }} />
-                <Spacer />
                 <LinksContainer>
-                    <LinksBackground />
-                    <ExternalLinks
-                        title="Visit my profiles"
-                        items={ExternalSites}
-                    />
+                    <LinksBackgroundWrapper>
+                        <ProfilesRightBlob width="100%" />
+                    </LinksBackgroundWrapper>
+                    <LinkTextWrapper>
+                        <ExternalLinks items={ExternalSites} />
+                    </LinkTextWrapper>
                 </LinksContainer>
             </ContentWrapper>
         </Section>

@@ -100,7 +100,7 @@
             "MongoDB",
             "Swagger"
         ],
-        "devops": ["Docker", "AWS", "GitHub"]
+        "devops": ["Docker", "AWS", "Azure", "GitHub"]
     },
     "contact": {}
 }

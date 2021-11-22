@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Title } from "../components/typography";
 import { Section } from "../components/layout";
-import NextSection from "../components/nextSection";
 import SkillList from "../components/skillList";
 import { graphql, useStaticQuery } from "gatsby";
 
@@ -14,21 +13,42 @@ const TitleWrapper = styled(Title)`
 
 const ContentWrapper = styled.div`
     display: flex;
-    width: 70%;
+    width: 90%;
     height: 100%;
     justify-content: space-around;
     flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    & > *:last-child {
+        align-self: flex-start;
+    }
 
     @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-        flex-direction: row;
+        flex-wrap: nowrap;
+        & > *:first-child {
+            justify-content: flex-start;
+        }
+
+        & > *:last-child {
+            justify-content: flex-end;
+            align-self: auto;
+        }
+    }
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        width: 80%;
     }
 `;
 
 const LayoutWrapper = styled.div`
-    width: 100%;
     display: flex;
+    width: 50%;
+    justify-content: center;
+
     @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
         justify-content: center;
+        width: 100%;
     }
 `;
 
@@ -60,7 +80,6 @@ const Skills: React.FC = () => {
                     <SkillList items={devops} />
                 </LayoutWrapper>
             </ContentWrapper>
-            <NextSection link="#contact" />
         </Section>
     );
 };

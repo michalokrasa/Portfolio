@@ -12,6 +12,7 @@ import {
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import { useMediaQueryEffect } from "../../hooks";
 import { ThemeContext } from "styled-components";
+import useEscapePressEffect from "../../hooks/escapePressEffect";
 
 const menuId = "burger-nav";
 
@@ -26,7 +27,9 @@ const BurgerableNav: React.FC<BurgerableNavProps> = ({ menuItems }) => {
     const isLargeScreen = useMediaQueryEffect(
         `(min-width: ${theme.breakpoints.lg})`
     );
-    
+
+    useEscapePressEffect(() => setOpen(false));
+
     useScrollPosition(
         ({ prevPos, currPos }) => {
             const ScrollActivationThreshhold = -50;
@@ -56,7 +59,10 @@ const BurgerableNav: React.FC<BurgerableNavProps> = ({ menuItems }) => {
                     <NavBar layout>
                         <AnimatePresence>
                             {isLargeScreen && !isScrolled && (
-                                <HeaderMenu key="header-menu" items={menuItems} />
+                                <HeaderMenu
+                                    key="header-menu"
+                                    items={menuItems}
+                                />
                             )}
                         </AnimatePresence>
                         <AnimatePresence>

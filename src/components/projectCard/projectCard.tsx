@@ -32,7 +32,6 @@ const Card = styled.div`
 `;
 
 const CardHeader = styled.div`
-    
     margin: 1.5rem;
 
     p {
@@ -54,13 +53,18 @@ const CardHeader = styled.div`
     }
 `;
 
-const ImageContainer = styled.div`
+const ImageContainer = styled.div<{ $isOpen: boolean }>`
     flex: 1;
     position: relative;
     display: flex;
     justify-content: center;
     border-radius: ${({ theme }) => theme.borderRadius}
         ${({ theme }) => theme.borderRadius} 0 0;
+    ${({ $isOpen }) =>
+        $isOpen &&
+        css`
+            max-height: 50vh;
+        `}
 `;
 
 const LinksWrapper = styled.div`
@@ -74,7 +78,7 @@ const LinkIcon = styled(motion.a)<{ $active: boolean }>`
     cursor: default;
     pointer-events: none;
 
-    ${({$active}) =>
+    ${({ $active }) =>
         $active &&
         css`
             cursor: pointer;
@@ -126,7 +130,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
     return (
         <Card ref={parentRef}>
-            <ImageContainer>
+            <ImageContainer $isOpen={isOpen}>
                 {isOpen && (
                     <FadeInOverlay>
                         <LinksWrapper>

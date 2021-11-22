@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "../components/button";
-import NextSection from "../components/nextSection";
 import { Section } from "../components/layout";
 import { graphql, navigate, useStaticQuery } from "gatsby";
 import TextCard from "../components/textCard";
@@ -43,7 +42,6 @@ const Introduction: React.FC = () => {
                     </ButtonWrapper>
                 </TextCard>
             </Wrapper>
-            <NextSection link="#projects" text="See my work" />
         </Section>
     );
 };

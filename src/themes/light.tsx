@@ -15,6 +15,8 @@ const lightTheme: DefaultTheme = {
         sm: "320px",
         md: "768px",
         lg: "1024px",
+        xl: "1400px",
+        xxl: "2000px",
     },
     borderRadius: "0.8em",
     shadow: "0 4px 12px 0 rgba(0, 0, 0, 0.2)",

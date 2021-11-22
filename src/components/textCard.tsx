@@ -11,7 +11,7 @@ const Card = styled.div`
     position: relative;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-        width: 70%;
+        width: 80%;
     }
 
     h2 {

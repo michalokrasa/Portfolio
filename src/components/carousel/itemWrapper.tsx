@@ -1,8 +1,12 @@
 import { motion, Variants } from "framer-motion";
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import styled, { css } from "styled-components";
 import { Orientation, PositionName, RotationDirection } from "./types";
 import { CarouselContext } from "./carouselContainer";
+// @ts-ignore
+import ChevronLeftIcon from "../../assets/svg/chevron_left.svg";
+// @ts-ignore
+import ChevronRightIcon from "../../assets/svg/chevron_right.svg";
 
 const CardHorizontalVariants: Variants = {
     exitPrev: {
@@ -90,20 +94,79 @@ const StyledItemWrapper = styled(motion.div)<CarouselItemProps>`
     position: absolute;
     left: 50%;
     top: 50%;
-    padding: 1rem;
     display: flex;
     align-items: center;
 
     ${(props) =>
         (props.$orientation === "vertical" &&
+            props.$isOpen &&
             css`
                 width: 100%;
+                height: calc(100% - 2rem);
+                position: fixed;
+                z-index: 2000 !important;
+                margin: 0;
+
+                @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+                    width: 80%;
+                }
+            `) ||
+        (props.$orientation === "vertical" &&
+            !props.$isOpen &&
+            css`
+                width: 100%;
+
+                &:hover {
+                    cursor: pointer;
+                }
             `) ||
         (props.$orientation === "horizontal" &&
+            props.$isOpen &&
             css`
-                width: ${props.$isOpen ? "80%" : "auto"};
-                height: ${props.$isOpen ? "100%" : "80%"};
+                width: 66%;
+                height: calc(100% - 2rem);
+                position: fixed;
+                z-index: 2000 !important;
+                margin: 0;
+            `) ||
+        (props.$orientation === "horizontal" &&
+            !props.$isOpen &&
+            css`
+                width: auto;
+                height: 80%;
+
+                &:hover {
+                    cursor: pointer;
+                }
             `)}
+`;
+
+const ChevronLeftStyled = styled(ChevronLeftIcon)`
+    width: 4rem;
+    height: 4rem;
+    display: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+        display: block;
+    }
+`;
+
+const ChevronRightStyled = styled(ChevronRightIcon)`
+    width: 4rem;
+    height: 4rem;
+    display: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+        display: block;
+    }
 `;
 
 const getPositionName = (positionIdx: number): PositionName => {
@@ -134,6 +197,7 @@ interface ItemWrapperProps {
     positionIdx: number;
     isOpen?: boolean;
     onClick?: () => void;
+    rotationHandle: (direction: RotationDirection) => void;
 }
 
 const ItemWrapper: React.FC<ItemWrapperProps> = ({
@@ -141,31 +205,46 @@ const ItemWrapper: React.FC<ItemWrapperProps> = ({
     positionIdx,
     isOpen,
     onClick,
+    rotationHandle,
 }) => {
     const { orientation, rotationDirection, itemsCount } = useContext(
         CarouselContext
     );
+    const containerRef = useRef<HTMLDivElement>(null);
 
     return (
-        <StyledItemWrapper
-            $isOpen={isOpen}
-            $orientation={orientation}
-            variants={
-                orientation === "horizontal"
-                    ? CardHorizontalVariants
-                    : CardVerticalVariants
-            }
-            initial={getPrevPosition(
-                positionIdx,
-                rotationDirection,
-                itemsCount
-            )}
-            animate={getPositionName(positionIdx)}
-            onClick={onClick}
-            // key={key}
-        >
-            {children}
-        </StyledItemWrapper>
+        <>
+            <StyledItemWrapper
+                ref={containerRef}
+                $isOpen={isOpen}
+                $orientation={orientation}
+                variants={
+                    orientation === "horizontal"
+                        ? CardHorizontalVariants
+                        : CardVerticalVariants
+                }
+                initial={getPrevPosition(
+                    positionIdx,
+                    rotationDirection,
+                    itemsCount
+                )}
+                animate={getPositionName(positionIdx)}
+                onClick={onClick}
+                // key={key}
+            >
+                {isOpen && (
+                    <ChevronLeftStyled
+                        onClick={() => rotationHandle("backward")}
+                    />
+                )}
+                {children}
+                {isOpen && (
+                    <ChevronRightStyled
+                        onClick={() => rotationHandle("forward")}
+                    />
+                )}
+            </StyledItemWrapper>
+        </>
     );
 };
 

@@ -21,12 +21,8 @@ const GlobalStyle = createGlobalStyle`
 
         --section-height: 800px;
 
-        @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+        @media (min-width: ${({ theme }) => theme.breakpoints.xxl}) {
             --section-height: 1000px;
-        }
-
-        @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-            --section-height: 1200px;
         }
     }
 

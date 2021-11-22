@@ -9,7 +9,7 @@ const Overlay = styled(motion.div)`
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: ${({ theme }) =>
-        `${theme.borderRadius} ${theme.borderRadius} 0 0`};
+        `${theme.borderRadius} 0 0 0`};
     opacity: 1;
     display: flex;
     align-items: center;
