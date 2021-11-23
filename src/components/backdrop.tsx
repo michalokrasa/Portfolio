@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { MouseEventHandler, useEffect, useMemo } from "react";
+import React, { MouseEventHandler, useEffect, useMemo, useRef } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import {
@@ -26,10 +26,10 @@ const BackdropBackground = styled(motion.div)<{ $modalZ: number }>`
 `;
 
 const Backdrop: React.FC<BackdropProps> = ({ isVisible, modalZ, onClick }) => {
-    const target = useMemo(
-        () => document.getElementById("gatsby-focus-wrapper"),
-        [document.getElementById("gatsby-focus-wrapper")]
-    );
+    const target =
+        typeof document !== "undefined"
+            ? document.getElementById("gatsby-focus-wrapper")
+            : null;
 
     useEffect(() => {
         if (target) {
@@ -40,13 +40,13 @@ const Backdrop: React.FC<BackdropProps> = ({ isVisible, modalZ, onClick }) => {
             }
         }
         return () => {
-            clearAllBodyScrollLocks();;
+            clearAllBodyScrollLocks();
         };
     }, [target, isVisible]);
 
     return target
         ? ReactDOM.createPortal(
-              <AnimatePresence >
+              <AnimatePresence>
                   {isVisible && (
                       <BackdropBackground
                           onClick={onClick}
