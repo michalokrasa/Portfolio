@@ -20,6 +20,7 @@
                 "Material UI"
             ],
             "links": {
+                "github": "https://github.com/UbiCOMP-Group/Medbox-landing",
                 "live": "https://ambient.ubicomp.pl/"
             },
             "description": "Ambient is my most advanced piece of work. This student project consists of a pill dispenser designed and manufactured by the Ambient team with UX focused on the elderly. I am responsible for the web application and backend infrastructure supporting our device. The project itself demands a wide variety of skills from 3D design, electronics and firmware to backend infrastructure and frontend web application. More than ten people are working on this system. Apart from the design and implementation of most backend and frontend parts, I am a leader of a group of five students that I successfully onboarded and taught the basics of working with Django."

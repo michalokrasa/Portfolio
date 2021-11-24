@@ -1,48 +1,26 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/00da56fa-eb47-4850-9ad0-08fab938ae6e/deploy-status)](https://app.netlify.com/sites/portfolio-okrasa/deploys)
+
 <p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
+    <img alt="Hi" src="https://raw.githubusercontent.com/BalboBigguns/Portfolio/main/README/Hi.gif" style="margin-right: -20px" />
+    <img alt="welcome" src="https://raw.githubusercontent.com/BalboBigguns/Portfolio/main/README/welcome.gif"/>
+    <img alt="to my" src="https://raw.githubusercontent.com/BalboBigguns/Portfolio/main/README/to_my.gif" style="margin-right: -20px"/>
+    <img alt="site!" src="https://raw.githubusercontent.com/BalboBigguns/Portfolio/main/README/site!.gif" />
+
 </p>
 <h1 align="center">
-  Gatsby minimal starter
+  👋 This is my portfolio 👋
 </h1>
 
-## 🚀 Quick start
+## This site was bootstraped with Gatsby <img alt="Gatsby logo" src="https://raw.githubusercontent.com/BalboBigguns/Portfolio/main/README/Gatsby-Monogram.svg" width="21"/>
 
-1.  **Create a Gatsby site.**
+  
+#### Tech stack
+  - React <img width=26 src="https://raw.githubusercontent.com/BalboBigguns/Portfolio/main/README/react.svg" alt="React logo" style="position:relative;top:8px"/> 
+  - Typescript <img width=26 src="https://raw.githubusercontent.com/BalboBigguns/Portfolio/main/README/TS-logo.svg" alt="Ts logo" style="position:relative;top:8px"/> 
+  - Framer motion <img width=26 src="https://raw.githubusercontent.com/BalboBigguns/Portfolio/main/README/framer-motion.svg" alt="Framer motion logo" style="position:relative;top:8px"/> 
+  - Styled components <img width=26 src="https://raw.githubusercontent.com/BalboBigguns/Portfolio/main/README/Styled-Components.svg" alt="Styled components logo" style="position:relative;top:6px"/> 
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+#### Live view
 
-2.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
-
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
-
-3.  **Open the code and start customizing!**
-
-    Your site is now running at http://localhost:8000!
-
-    Edit `src/pages/index.js` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+  [Visit my site](https://portfolio-okrasa.netlify.app/)
