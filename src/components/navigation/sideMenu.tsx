@@ -50,13 +50,13 @@ const SideMenuVariants: Variants = {
     visible: {
         x: 0,
         transition: {
-            duration: 0.5,
+            duration: 0.3,
         },
     },
     exit: {
         x: "100%",
         transition: {
-            duration: 0.5,
+            duration: 0.3,
         },
     },
 };

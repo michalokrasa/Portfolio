@@ -80,7 +80,7 @@ const InputForm: React.FC<InputFormProps> = ({ initialValues, className }) => {
 
                 return errors;
             }}
-            onSubmit={async (values) => {
+            onSubmit={async (values, { resetForm }) => {
                 try {
                     const sendingThrottle = new Promise((r) =>
                         setTimeout(r, 500)
@@ -106,6 +106,7 @@ const InputForm: React.FC<InputFormProps> = ({ initialValues, className }) => {
                         addToast(SubmissionSuccess.children, {
                             ...SubmissionSuccess.options,
                         });
+                        resetForm();
                     } else {
                         addToast(SubmissionError.children, {
                             ...SubmissionError.options,
