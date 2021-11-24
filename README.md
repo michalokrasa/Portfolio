@@ -15,10 +15,10 @@
 
   
 #### Tech stack
-  - React <img width=26 src="https://raw.githubusercontent.com/BalboBigguns/Portfolio/main/README/react.svg" alt="React logo" style="position:relative;top:8px"/> 
-  - Typescript <img width=26 src="https://raw.githubusercontent.com/BalboBigguns/Portfolio/main/README/TS-logo.svg" alt="Ts logo" style="position:relative;top:8px"/> 
-  - Framer motion <img width=26 src="https://raw.githubusercontent.com/BalboBigguns/Portfolio/main/README/framer-motion.svg" alt="Framer motion logo" style="position:relative;top:8px"/> 
-  - Styled components <img width=26 src="https://raw.githubusercontent.com/BalboBigguns/Portfolio/main/README/Styled-Components.svg" alt="Styled components logo" style="position:relative;top:6px"/> 
+  - React <img width=26 src="https://raw.githubusercontent.com/BalboBigguns/Portfolio/main/README/react.svg" alt="React logo" /> 
+  - Typescript <img width=26 src="https://raw.githubusercontent.com/BalboBigguns/Portfolio/main/README/TS-logo.svg" alt="Ts logo" /> 
+  - Framer motion <img width=26 src="https://raw.githubusercontent.com/BalboBigguns/Portfolio/main/README/framer-motion.svg" alt="Framer motion logo" > 
+  - Styled components <img width=26 src="https://raw.githubusercontent.com/BalboBigguns/Portfolio/main/README/Styled-Components.svg" alt="Styled components logo" /> 
 
 
 #### Live view
