@@ -98,10 +98,36 @@ interface ProjectCardProps {
     description: string;
     stack: string[];
     links: {
-        github?: string;
+        github?: string[];
         live?: string;
     };
 }
+
+const parseLinks = (links?: string[]) => {
+    if (links) {
+        return links.map((link) => (
+            <LinkIcon
+                href={link}
+                $active={true}
+                target="_blank"
+                whileHover={{ scale: 1.2 }}
+            >
+                <GitHubIcon/>
+            </LinkIcon>
+        ));
+    } else {
+        return (
+            <LinkIcon
+                href={""}
+                $active={false}
+                target="_blank"
+                whileHover={{}}
+            >
+                <GitHubIcon/>
+            </LinkIcon>
+        );
+    }
+};
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
     children,
@@ -134,14 +160,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 {isOpen && (
                     <FadeInOverlay>
                         <LinksWrapper>
-                            <LinkIcon
-                                href={links.github || ""}
-                                $active={!!links.github}
-                                target="_blank"
-                                whileHover={links.github ? { scale: 1.2 } : {}}
-                            >
-                                <GitHubIcon />
-                            </LinkIcon>
+                            {parseLinks(links.github)}
                             <LinkIcon
                                 href={links.live || ""}
                                 $active={!!links.live}
