@@ -67,6 +67,11 @@ const ImageContainer = styled.div<{ $isOpen: boolean }>`
         `}
 `;
 
+const LinksContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
 const LinksWrapper = styled.div`
     display: flex;
 `;
@@ -98,36 +103,11 @@ interface ProjectCardProps {
     description: string;
     stack: string[];
     links: {
-        github?: string[];
+        github?: string;
         live?: string;
-    };
+    }[];
 }
 
-const parseLinks = (links?: string[]) => {
-    if (links) {
-        return links.map((link) => (
-            <LinkIcon
-                href={link}
-                $active={true}
-                target="_blank"
-                whileHover={{ scale: 1.2 }}
-            >
-                <GitHubIcon/>
-            </LinkIcon>
-        ));
-    } else {
-        return (
-            <LinkIcon
-                href={""}
-                $active={false}
-                target="_blank"
-                whileHover={{}}
-            >
-                <GitHubIcon/>
-            </LinkIcon>
-        );
-    }
-};
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
     children,
@@ -159,17 +139,32 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <ImageContainer $isOpen={isOpen}>
                 {isOpen && (
                     <FadeInOverlay>
-                        <LinksWrapper>
-                            {parseLinks(links.github)}
-                            <LinkIcon
-                                href={links.live || ""}
-                                $active={!!links.live}
-                                target="_blank"
-                                whileHover={links.live ? { scale: 1.2 } : {}}
-                            >
-                                <LiveView />
-                            </LinkIcon>
-                        </LinksWrapper>
+                        <LinksContainer>
+                            {links.map((entry) => (
+                                <LinksWrapper>
+                                    <LinkIcon
+                                        href={entry.github || ""}
+                                        $active={!!entry.github}
+                                        target="_blank"
+                                        whileHover={
+                                            entry.github ? { scale: 1.2 } : {}
+                                        }
+                                    >
+                                        <GitHubIcon />
+                                    </LinkIcon>
+                                    <LinkIcon
+                                        href={entry.live || ""}
+                                        $active={!!entry.live}
+                                        target="_blank"
+                                        whileHover={
+                                            entry.live ? { scale: 1.2 } : {}
+                                        }
+                                    >
+                                        <LiveView />
+                                    </LinkIcon>
+                                </LinksWrapper>
+                            ))}
+                        </LinksContainer>
                     </FadeInOverlay>
                 )}
                 {React.cloneElement(image, {

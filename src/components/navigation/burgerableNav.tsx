@@ -20,9 +20,20 @@ interface BurgerableNavProps {
     menuItems: MenuItem[];
 }
 
+const SCROLL_ACTIVATION_THRESHHOLD = -50;
+
+
+const isInitiallyScrolled = () => {
+    if (typeof window !== 'undefined') {
+        return window.scrollY > -SCROLL_ACTIVATION_THRESHHOLD;
+    } 
+
+    return false;
+};
+
 const BurgerableNav: React.FC<BurgerableNavProps> = ({ menuItems }) => {
     const [open, setOpen] = useState(false);
-    const [isScrolled, setScrolled] = useState(false);
+    const [isScrolled, setScrolled] = useState(isInitiallyScrolled());
     const theme = useContext(ThemeContext);
     const isLargeScreen = useMediaQueryEffect(
         `(min-width: ${theme.breakpoints.lg})`
@@ -32,17 +43,19 @@ const BurgerableNav: React.FC<BurgerableNavProps> = ({ menuItems }) => {
 
     useScrollPosition(
         ({ prevPos, currPos }) => {
-            const ScrollActivationThreshhold = -50;
-
             if (
-                currPos.y < ScrollActivationThreshhold &&
-                prevPos.y >= ScrollActivationThreshhold
+                currPos.y < SCROLL_ACTIVATION_THRESHHOLD &&
+                prevPos.y >= SCROLL_ACTIVATION_THRESHHOLD
             ) {
+                console.log('Set scrolled to true');
+                
                 setScrolled(true);
             } else if (
-                currPos.y >= ScrollActivationThreshhold &&
-                prevPos.y < ScrollActivationThreshhold
+                currPos.y >= SCROLL_ACTIVATION_THRESHHOLD &&
+                prevPos.y < SCROLL_ACTIVATION_THRESHHOLD
             ) {
+                console.log('Set scrolled to false');
+
                 setScrolled(false);
             }
         },
@@ -51,6 +64,9 @@ const BurgerableNav: React.FC<BurgerableNavProps> = ({ menuItems }) => {
         false,
         300
     );
+
+    console.log(isScrolled);
+    
 
     return (
         <div>

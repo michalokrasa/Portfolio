@@ -19,13 +19,16 @@
                 "JavaScript",
                 "Material UI"
             ],
-            "links": {
-                "github": [
-                    "https://github.com/UbiCOMP-Group/Medbox-landing",
-                    "https://github.com/UbiCOMP-Group/Medbox-server"
-                ],
-                "live": "https://ambient.ubicomp.pl/"
-            },
+            "links": [
+                {
+                    "github": "https://github.com/UbiCOMP-Group/Medbox-landing",
+                    "live": "https://ambient.ubicomp.pl/"
+                },
+                {
+                    "github": "https://github.com/UbiCOMP-Group/Medbox-server",
+                    "live": "https://api.ambient.ubicomp.pl/swagger-ui"
+                }
+            ],
             "description": "Ambient is my most advanced piece of work. This student project consists of a pill dispenser designed and manufactured by the Ambient team with UX focused on the elderly. I am responsible for the web application and backend infrastructure supporting our device. The project itself demands a wide variety of skills from 3D design, electronics and firmware to backend infrastructure and frontend web application. More than ten people are working on this system. Apart from the design and implementation of most backend and frontend parts, I am a leader of a group of five students that I successfully onboarded and taught the basics of working with Django."
         },
         {
@@ -36,10 +39,12 @@
                 "alt": "LectureAssistant screenshot"
             },
             "stack": ["Flask", "Docker", "React", "JavaScript", "CSS"],
-            "links": {
-                "github": ["https://github.com/BalboBigguns/LectureAssistant"],
-                "live": "http://ec2-35-156-46-170.eu-central-1.compute.amazonaws.com"
-            },
+            "links": [
+                {
+                    "github": "https://github.com/BalboBigguns/LectureAssistant",
+                    "live": "http://ec2-35-156-46-170.eu-central-1.compute.amazonaws.com"
+                }
+            ],
             "description": "Lecture Assistant is the system meant to help teachers improve presentational skills during COVID-19 induced e-learning. I developed it in the scope of my engineering thesis and got the highest mark, together with the explicit appreciation for its research-based background. This project is the most complex system I have designed and developed. It comprises multiple services connected with docker and relies on audio processing algorithms that I did not know about before the project. I have greatly improved my data processing and docker-related skills with it. The system has been deployed to AWS cloud and the live view may still be accessible."
         },
         {
@@ -50,10 +55,12 @@
                 "alt": "Portfolio screenshot"
             },
             "stack": ["Gatsby", "React", "TypeScript", "Styled Components"],
-            "links": {
-                "github": ["https://github.com/BalboBigguns/Portfolio"],
-                "live": "https://portfolio-okrasa.netlify.app"
-            },
+            "links": [
+                {
+                    "github": "https://github.com/BalboBigguns/Portfolio",
+                    "live": "https://portfolio-okrasa.netlify.app"
+                }
+            ],
             "description": "My personal portfolio site you are visiting right now. While creating it I have learned the basics of Gatsby, Styled Components and Framer Motion. \n\nPS. \nI am quite proud of this carousel, not gonna lie."
         },
         {
@@ -64,9 +71,11 @@
                 "alt": "GoogleTimetable screenshot"
             },
             "stack": ["Python", "Selenium"],
-            "links": {
-                "github": ["https://github.com/BalboBigguns/GoogleTimetable"]
-            },
+            "links": [
+                {
+                    "github": "https://github.com/BalboBigguns/GoogleTimetable"
+                }
+            ],
             "description": "The effect of being locked up during my Erasmus exchange (and my drive for automation too). Having access to university time schedules of all the faculties and majors and attending courses from different levels and departments I have decided it is time to up my scheduling game. This project is a direct result of my approach to automation by tampering with google calendar API and Selenium scraping. I can't say it is a complete and bulletproof solution but it did its job fairly well. It was robust enough for me not to be afraid of missing any classes."
         },
         {
@@ -77,10 +86,12 @@
                 "alt": "ExerciseIt screenshot"
             },
             "stack": ["Node", "Express", "MongoDB"],
-            "links": {
-                "github": ["https://github.com/BalboBigguns/ExerciseIt-Backend"],
-                "live": "https://balbobigguns.github.io/ExerciseIt/"
-            },
+            "links": [
+                {
+                    "github": "https://github.com/BalboBigguns/ExerciseIt-Backend",
+                    "live": "https://balbobigguns.github.io/ExerciseIt/"
+                }
+            ],
             "description": "ExerciseIt is my idea for application embracing learning and self-growth, primarily focused on IT-related materials. The project assumes developing an app that allows saving and managing different sources of learning materials like YT tutorials, e-books etc. Unfortunately, I had to abandon this project a while ago due to the lack of time but I am still in love with the simplicity of developing an Express backend. I hope to get back to working on it after finishing currently open projects."
         }
     ],
