@@ -42,7 +42,7 @@
             "links": [
                 {
                     "github": "https://github.com/BalboBigguns/LectureAssistant",
-                    "live": "http://ec2-35-156-46-170.eu-central-1.compute.amazonaws.com"
+                    "live": "https://lectureassistant.website"
                 }
             ],
             "description": "Lecture Assistant is the system meant to help teachers improve presentational skills during COVID-19 induced e-learning. I developed it in the scope of my engineering thesis and got the highest mark, together with the explicit appreciation for its research-based background. This project is the most complex system I have designed and developed. It comprises multiple services connected with docker and relies on audio processing algorithms that I did not know about before the project. I have greatly improved my data processing and docker-related skills with it. The system has been deployed to AWS cloud and the live view may still be accessible."
