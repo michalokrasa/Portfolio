@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React from "react";
+import React, { ReactNode } from "react";
 
 const Wrapper = styled.section`
     height: var(--section-height);
@@ -22,6 +22,7 @@ interface SectionProps {
     /** Section id, can be used to link to it. */
     id: string;
     className?: string;
+    children: ReactNode;
 }
 
 const Section: React.FC<SectionProps> = ({ id, children, className }) => {

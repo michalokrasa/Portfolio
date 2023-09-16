@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { Orientation, RotationDirection } from "./types";
 
@@ -27,6 +27,7 @@ interface CarouselContainerProps {
     orientation: Orientation;
     rotationDirection: RotationDirection;
     itemsCount: number;
+    children: ReactNode;
 }
 
 const CarouselContainer: React.FC<CarouselContainerProps> = ({

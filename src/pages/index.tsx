@@ -11,8 +11,7 @@ import {
 } from "../components/layout";
 import BurgerableNav, { MenuItem } from "../components/navigation";
 import { useRealHight } from "../hooks";
-import { ToastProvider } from "react-toast-notifications";
-import { Helmet } from "react-helmet";
+import { HeadFC } from "gatsby";
 
 const menuItems: MenuItem[] = [
     {
@@ -38,11 +37,6 @@ const IndexPage: React.FC = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <ToastProvider autoDismiss placement="top-center">
-                <Helmet>
-                    <meta charSet="utf-8" />
-                    <title>WebDev Portfolio Okrasa</title>
-                </Helmet>
                 <GlobalStyle />
                 <Background />
                 <BurgerableNav menuItems={menuItems} />
@@ -54,9 +48,13 @@ const IndexPage: React.FC = () => {
                     <Contact />
                 </MainContainer>
                 <Footer />
-            </ToastProvider>
         </ThemeProvider>
     );
 };
 
 export default IndexPage;
+
+export const Head: HeadFC = () => <>
+  <meta charSet="utf-8" />
+  <title>WebDev Portfolio Okrasa</title>
+</>

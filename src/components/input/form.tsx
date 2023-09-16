@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { Form, Formik } from "formik";
 import Button from "../button";
 import SuspenseOverlay from "../suspenseOverlay";
-import { useToasts } from "react-toast-notifications";
-import { SubmissionError, SubmissionSuccess } from "../toasts";
 import { Input, Label, Textarea, ErrorMessage } from ".";
 
 const StyledForm = styled(Form)`
@@ -24,7 +22,7 @@ const StyledSuspenseOverlay = styled(SuspenseOverlay)`
     align-self: flex-end;
 `;
 
-const encode = (data) => {
+const encode = (data: Record<string, string>) => {
     return Object.keys(data)
         .map(
             (key) =>
@@ -34,7 +32,7 @@ const encode = (data) => {
 };
 
 const validateEmail = (value: string) => {
-    let error: string;
+    let error: string | undefined = undefined;
     if (!value) {
         error = "Required";
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
@@ -44,7 +42,7 @@ const validateEmail = (value: string) => {
 };
 
 const validateMessage = (value: string) => {
-    let error: string;
+    let error: string | undefined = undefined;
     if (!value) {
         error = "Required";
     }
@@ -60,8 +58,6 @@ interface InputFormProps {
 }
 
 const InputForm: React.FC<InputFormProps> = ({ initialValues, className }) => {
-    const { addToast } = useToasts();
-
     return (
         <Formik
             initialValues={initialValues}
@@ -103,21 +99,11 @@ const InputForm: React.FC<InputFormProps> = ({ initialValues, className }) => {
                     console.log("Submit respose message:");
                     console.log(result);
                     if (result.ok) {
-                        addToast(SubmissionSuccess.children, {
-                            ...SubmissionSuccess.options,
-                        });
                         resetForm();
-                    } else {
-                        addToast(SubmissionError.children, {
-                            ...SubmissionError.options,
-                        });
                     }
                 } catch (error) {
                     console.log("Submit error message:");
-                    console.log(error.message);
-                    addToast(SubmissionError.children, {
-                        ...SubmissionError.options,
-                    });
+                    console.log(error?.message);
                 }
             }}
         >

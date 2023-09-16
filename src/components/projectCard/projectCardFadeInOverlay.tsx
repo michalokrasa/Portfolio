@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 
 const Overlay = styled(motion.div)`
@@ -20,7 +20,7 @@ const Overlay = styled(motion.div)`
     }
 `;
 
-const FadeInOverlay: React.FC = ({ children }) => {
+const FadeInOverlay: React.FC<{ children: ReactNode }> = ({ children }) => {
     return <Overlay whileHover={{ opacity: 1 }}>{children}</Overlay>;
 };
 

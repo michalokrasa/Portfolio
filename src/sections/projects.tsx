@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 const Projects: React.FC = () => {
     const theme = useContext(ThemeContext);
     const isLargeScreen = useMediaQueryEffect(
-        `(min-width: ${theme.breakpoints.lg})`
+        `(min-width: ${theme?.breakpoints.lg})`
     );
     const { dataJson } = useStaticQuery(graphql`
         query ProjectsQuery {
@@ -55,15 +55,18 @@ const Projects: React.FC = () => {
             <Wrapper>
                 <Carousel
                     orientation={isLargeScreen ? "horizontal" : "vertical"}
-                    items={projects.map((project) => (
+                    items={projects.map((project: any) => {
+                        const image = getImage(project.image.src);
+                        return (
                         <ProjectCard
                             key={project.title}
                             title={project.title}
                             image={
+                                image ?
                                 <GatsbyImage
-                                    image={getImage(project.image.src)}
+                                    image={image}
                                     alt={project.image.alt}
-                                />
+                                /> : <></>
                             }
                             description={project.description}
                             stack={project.stack}
@@ -72,7 +75,8 @@ const Projects: React.FC = () => {
                         >
                             {project.text}
                         </ProjectCard>
-                    ))}
+                    )
+                    })}
                 />
             </Wrapper>
         </Section>

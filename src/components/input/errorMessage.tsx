@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 
 const ErrorMessage = styled.p`
@@ -11,7 +11,7 @@ const ErrorMessage = styled.p`
     }
 `;
 
-const InputErrorMessage: React.FC<{ show: boolean }> = ({ children, show }) => {
+const InputErrorMessage: React.FC<{ show: boolean; children: ReactNode }> = ({ children, show }) => {
     return show && <ErrorMessage>{children}</ErrorMessage>;
 };
 

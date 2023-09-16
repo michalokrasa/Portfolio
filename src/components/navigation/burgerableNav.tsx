@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import FocusLock from "react-focus-lock";
-import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import {
     MenuItem,
     SideMenuWrapper,
@@ -36,7 +36,7 @@ const BurgerableNav: React.FC<BurgerableNavProps> = ({ menuItems }) => {
     const [isScrolled, setScrolled] = useState(isInitiallyScrolled());
     const theme = useContext(ThemeContext);
     const isLargeScreen = useMediaQueryEffect(
-        `(min-width: ${theme.breakpoints.lg})`
+        `(min-width: ${theme?.breakpoints.lg})`
     );
 
     useEscapePressEffect(() => setOpen(false));
@@ -60,7 +60,7 @@ const BurgerableNav: React.FC<BurgerableNavProps> = ({ menuItems }) => {
             }
         },
         [isScrolled],
-        null,
+        undefined,
         false,
         300
     );
@@ -71,7 +71,6 @@ const BurgerableNav: React.FC<BurgerableNavProps> = ({ menuItems }) => {
     return (
         <div>
             <FocusLock disabled={!open}>
-                <AnimateSharedLayout>
                     <NavBar layout>
                         <AnimatePresence>
                             {isLargeScreen && !isScrolled && (
@@ -92,7 +91,6 @@ const BurgerableNav: React.FC<BurgerableNavProps> = ({ menuItems }) => {
                             )}
                         </AnimatePresence>
                     </NavBar>
-                </AnimateSharedLayout>
                 <AnimatePresence>
                     {open && (
                         <SideMenuWrapper setOpen={setOpen}>

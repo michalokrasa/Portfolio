@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React from "react";
+import React, { ReactNode } from "react";
 import { motion, Variants } from "framer-motion";
 
 const Container = styled.div`
@@ -38,6 +38,7 @@ const WrapperVariants: Variants = {
 
 interface WrapperProps {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    children: ReactNode;
 }
 
 const MenuWrapper: React.FC<WrapperProps> = ({ children, setOpen }) => {

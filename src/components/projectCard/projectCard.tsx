@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { ReactNode, useContext, useEffect, useRef } from "react";
 import styled, { css, ThemeContext } from "styled-components";
 import FadeInOverlay from "./projectCardFadeInOverlay";
 import ProjectDescription from "./projectDescription";
@@ -106,6 +106,7 @@ interface ProjectCardProps {
         github?: string;
         live?: string;
     }[];
+    children: ReactNode;
 }
 
 
@@ -125,7 +126,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     useEffect(() => {
         const timeout = setTimeout(() => {
             if (isOpen) {
-                scrollParentToChild(parentRef.current, childRef.current);
+                scrollParentToChild(parentRef.current as unknown as HTMLElement, childRef.current as unknown as HTMLElement);
             }
         }, 300);
 
@@ -168,7 +169,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                     </FadeInOverlay>
                 )}
                 {React.cloneElement(image, {
-                    imgStyle: { borderRadius: theme.borderRadius },
+                    imgStyle: { borderRadius: theme?.borderRadius },
                 })}
             </ImageContainer>
             <CardHeader>

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { HTMLMotionProps, motion, Variants } from "framer-motion";
+import { MenuItem } from "./types";
 
 const LinkList = styled(motion.ul).attrs((props) => ({
     ...props,
@@ -15,7 +16,6 @@ const LinkList = styled(motion.ul).attrs((props) => ({
         margin: 0px 1rem;
         text-decoration: none;
         font-size: 1.5rem;
-        color: ${(props) => props.theme.palette.font};
         font-weight: bold;
         color: ${(props) => props.theme.palette.fontSecondary};
     }

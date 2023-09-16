@@ -1,5 +1,5 @@
 import { motion, Variants } from "framer-motion";
-import React, { useContext, useRef } from "react";
+import React, { ReactNode, useContext, useRef } from "react";
 import styled, { css } from "styled-components";
 import { Orientation, PositionName, RotationDirection } from "./types";
 import { CarouselContext } from "./carouselContainer";
@@ -180,6 +180,7 @@ const getPositionName = (positionIdx: number): PositionName => {
         case 3:
             return "next";
         case 4:
+        default:
             return "exitNext";
     }
 };
@@ -198,6 +199,7 @@ interface ItemWrapperProps {
     isOpen?: boolean;
     onClick?: () => void;
     rotationHandle: (direction: RotationDirection) => void;
+    children: ReactNode;
 }
 
 const ItemWrapper: React.FC<ItemWrapperProps> = ({
@@ -216,7 +218,7 @@ const ItemWrapper: React.FC<ItemWrapperProps> = ({
         <>
             <StyledItemWrapper
                 ref={containerRef}
-                $isOpen={isOpen}
+                $isOpen={!!isOpen}
                 $orientation={orientation}
                 variants={
                     orientation === "horizontal"

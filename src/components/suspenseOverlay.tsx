@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { ReactNode, useContext } from "react";
 import styled, { ThemeContext } from "styled-components";
 import { CircleSpinner } from "react-spinners-kit";
 
@@ -17,6 +17,7 @@ const SpinnerWrapper = styled.div`
 
 interface SuspenseOverlayProps {
     loading: boolean;
+    children: ReactNode;
 }
 
 const SuspenseOverlay: React.FC<SuspenseOverlayProps> = ({
@@ -34,7 +35,7 @@ const SuspenseOverlay: React.FC<SuspenseOverlayProps> = ({
                     size={1.5}
                     sizeUnit={"rem"}
                     loading={loading}
-                    color={theme.palette.fontSecondary}
+                    color={theme?.palette.fontSecondary}
                 />
             </SpinnerWrapper>
         </Wrapper>

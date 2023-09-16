@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 
 const Card = styled.div`
@@ -38,6 +38,7 @@ const Card = styled.div`
 interface TextCardProps {
     title: string;
     text: string;
+    children: ReactNode;
 }
 
 const TextCard: React.FC<TextCardProps> = ({ title, text, children }) => {

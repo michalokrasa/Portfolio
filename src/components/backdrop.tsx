@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { MouseEventHandler, useEffect, useMemo, useRef } from "react";
+import React, { MouseEventHandler, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import {
