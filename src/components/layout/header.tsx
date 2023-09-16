@@ -30,7 +30,7 @@ const Title = styled.p`
 const Header: React.FC = () => {
     return (
         <StyledHeader>
-            <Title>Hello, I'm Mike</Title>
+            <Title>Hello, I'm Michal</Title>
         </StyledHeader>
     );
 };

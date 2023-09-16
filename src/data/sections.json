@@ -1,7 +1,7 @@
 {
     "introduction": {
         "title": "Welcome to my portfolio website 👋",
-        "text": "As a junior full-stack web developer with BSc in Computer Science, I have already taken my first steps in commercial projects. My go-to stack consists of React ecosystem on the frontend and node-based backend services written in typescript. So far, I've gathered remarkable experience creating headless e-commerce applications integrated with the most popular engines. Apart from that, I've had opportunities to work on admin panel application and custom streaming service solution."
+        "text": "I am full-stack web developer with a BSc in Computer Science. My go-to stack consists of a React ecosystem on the front end and node-based backend services written in typescript. I have experience creating headless e-commerce applications integrated with the most popular engines, admin panels, ERPs, custom streaming service solutions, employee management services and backend services for global applications. I am fluent in AWS solutions but had a chance to explore different clouds to some extent."
     },
     "projects": [
         {
